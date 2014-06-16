@@ -1,0 +1,3 @@
+function [] = phrase(M)
+  %Get phrase from Matrix
+  

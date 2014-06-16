@@ -1,0 +1,3 @@
+EXCLUDES="*~"
+SYMLINK_DIRS="emacs.d"
+TAGS="git emacs zsh X11 xmonad gtk"

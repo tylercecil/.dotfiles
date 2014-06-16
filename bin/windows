@@ -1,0 +1,11 @@
+#Small script to run Windows
+#Requires efibootmgr, a utility which manages EFI variabls
+
+#Sets a temporary "Next boot" id
+#0000 was chosen by running efibootmgr, and
+#selecting which number was Windows Boot Manager.
+#This could be automated, but this is mostly a personal script
+sudo efibootmgr -n 0000
+
+#Reboot machine
+reboot
