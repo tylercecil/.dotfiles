@@ -266,7 +266,7 @@ myStartupHook = return ()
 main = xmonad =<< statusBar myBar myPP toggleStrutsKey defaults
 
 -- Command to launch the bar.
-myBar = "xmobar ~/.xmodbarrc"
+myBar = "xmobar ~/.xmobarrc"
 
 -- Custom PP, configure it as you like. It determines what is being written to the bar.
 myPP = xmobarPP { ppCurrent = xmobarColor "#429942" "" . wrap "<" ">" }
