@@ -28,7 +28,9 @@
 ;Linnum mode
 (global-linum-mode 1)
 ;No Scrollbar
-(scroll-bar-mode -1)
+;I'm putting an if for this, because it is nill on archimedes.
+;  (scroll-bar-mode -1)
+(if (boundp 'scroll-bar-mode) (scroll-bar-mode -1) ())
 ;No Toolbar (Do I really want this? Should look into it...)
 (tool-bar-mode -1)
 ;No menu bar (Can still use C-mouse-3)
