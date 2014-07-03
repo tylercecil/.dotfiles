@@ -47,11 +47,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=~/.cabal/bin:~/.bin/:$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl
 
-#Virtualenvwrapper
-export WORKON_HOME=~/.virtualenvs
-source /usr/bin/virtualenvwrapper.sh
-
-#Custome Commands
+#Custom Commands
 ################################################################
 alias rma='rm *~'
 function mkcd(){
@@ -60,17 +56,26 @@ function mkcd(){
 }
 
 alias p="python"
-alias emacs="ema"
-alias eman="ema -n"
-alias open="xdg-open"
+alias ema="emacs"
 
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=' -R '
 
-
 #DEFAULTS
 ################################################################
 export EDITOR='ema'
+
+#archimedes Defaults
+################################################################
+if [ "archimedes" = `hostname` ]; then
+  source .zshrc.archimedes
+fi
+
+#euclid Default
+################################################################
+if [ "euclid" = `hostname` ]; then
+  source .zshrc.euclid
+fi
 
 #Start X
 ################################################################
