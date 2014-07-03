@@ -10,7 +10,15 @@ Makefile
 #README
 TODO
 auctex.el
-auto-loads.el
+
+################################################################
+# So... it NEEDS this to start... I'm not sure exactly what to do about
+# it other than load it up? I mean... I could have zsh look for it, and
+# touch it if it needs to? What exactly gets put in it?
+################################################################
+# auto-loads.el
+################################################################
+
 autom4te.*
 config.*
 configure
