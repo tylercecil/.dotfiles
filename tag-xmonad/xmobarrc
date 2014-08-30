@@ -1,6 +1,6 @@
 Config {
     font = "xft:Anonymous Pro"
-  , bgColor = "black"
+  , bgColor = "#101011"
   , fgColor = "grey"
   , position = Top
   , lowerOnStart = True

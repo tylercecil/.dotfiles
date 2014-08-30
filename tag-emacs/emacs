@@ -1,4 +1,25 @@
 ;; ~/.emacs
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;DO NOT TOUCH
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+; '(column-number-mode t)
+ '(doc-view-continuous t)
+ '(inhibit-startup-screen t)
+ '(max-lisp-eval-depth 10000)
+ '(max-specpdl-size 10000)
+ )
+;(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+; )
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Package Manager Things
@@ -19,8 +40,8 @@
 ;unified them.
 
 ;;Transparency
-(set-frame-parameter (selected-frame) 'alpha '(87 65))
-(add-to-list 'default-frame-alist '(alpha 87 65))
+;;(set-frame-parameter (selected-frame) 'alpha '(87 65))
+(add-to-list 'default-frame-alist '(alpha 90 80))
 ;Background/forground
 ;Configured in .Xresources
 ;(setq default-frame-alist '((background-color . "black")
@@ -37,7 +58,7 @@
 (menu-bar-mode -99)
 ;Font
 ;Configured in .Xresources
-(set-frame-font "Anonymous Pro")
+(set-frame-font "Anonymous Pro 14")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Global Settings 
@@ -59,6 +80,13 @@
                 (when (and (not (file-exists-p dir))
                            (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
                   (make-directory dir t))))))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Smart Mode Line
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq sml/no-confirm-load-theme t)
+(sml/setup)
+(sml/apply-theme 'respectful)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;Autopair.el
@@ -145,21 +173,4 @@
 (tss-config-default)
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;DO NOT TOUCH
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(doc-view-continuous t)
- '(inhibit-startup-screen t)
- '(max-lisp-eval-depth 10000)
- '(max-specpdl-size 10000))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+

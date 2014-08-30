@@ -10,13 +10,14 @@ URxvt.font: xft:Anonymous Pro:size=14
 Emacs.FontBackend: xft
 Emacs.font: Anonymous Pro-14
 
+*.font: xft:Anonymous Pro:size=14
 
 !!SOLARIZED COLOR THEME
 !!Source http://github.com/altercation/solarized 
 !!I have removed info on the background, as I prefere
 !!plain black.
-URxvt*background: [87]#000000
-*background: #000000
+URxvt*background: [90]#002b36
+*background: #282829
 *foreground: #B2BDC1
  
 !! black dark/light
