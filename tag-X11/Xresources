@@ -16,7 +16,7 @@ Emacs.font: Anonymous Pro-14
 !!Source http://github.com/altercation/solarized 
 !!I have removed info on the background, as I prefere
 !!plain black.
-URxvt*background: [90]#002b36
+URxvt*background: [90]#282829
 *background: #282829
 *foreground: #B2BDC1
  

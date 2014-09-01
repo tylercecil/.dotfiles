@@ -63,8 +63,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     [ ((modm .|. shiftMask, xK_Return), spawn $ XMonad.terminal conf)
 
     -- launch dmenu
+    -- requires dmenu2
     , ((modm,               xK_r     ),
-       spawn "dmenu_run -b -r -o 1 -fn 'Anonymous Pro-10' -l 10 -w 500 -p 'Run' ")
+        spawn "dmenu_run -b -fn 'Anonymous Pro-10' -l 10 -w 500 -p 'Run'")
 
     -- launch gmrun
     --, ((modm .|. shiftMask, xK_r     ), spawn "gmrun")
