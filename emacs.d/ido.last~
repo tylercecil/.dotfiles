@@ -1,0 +1,79 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/izzy/.emacs.d/config/modes/" . "shell/")
+ ("/Users/izzy/.emacs.d/config/" . "modes/")
+ ("/Users/izzy/Documents/school/sem8/math410/" . "hw8/")
+ ("/Users/izzy/Documents/school/sem8/" . "math410/")
+ ("/Users/izzy/" . ".emacs.d/")
+ ("/Users/izzy/.emacs.d/" . "config/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/izzy/.emacs.d/config/"
+ "/Users/izzy/Documents/school/sem8/math410/hw8/"
+ "/Users/izzy/.emacs.d/"
+ "/Users/izzy/.emacs.d/config/modes/shell/"
+ "/Users/izzy/.emacs.d/config/modes/text/"
+ "/Users/izzy/Documents/school/sem8/math410/hw3/"
+ "/Users/izzy/Documents/school/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "behaviors.el"
+ "hw.tex"
+ "hw.pdf"
+ "init.el"
+ "homework.cls"
+ "keys.el"
+ "package-behavior.el"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/izzy/.emacs.d/config/" (21595 42086 0 0) "theme/" "package-behavior.el~" "package-behavior.el" "modes/" "keys.el~" "keys.el" "behaviors.el~" "behaviors.el" ".#behaviors.el" "../" "./")
+
+ ("/Users/izzy/.emacs.d/" (21595 41970 0 0) "util/" "url/" "tramp" "smex-items" "init.el" "ido.last~" "ido.last" "elpa/" "config/" "auto-save-list/" "ac-comphist.dat" "#init.el#" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/math410/hw8/" (21594 65088 0 0) "polyinterp.jl" "hw.tex" "hw.pyg" "hw.pdf" "hw.log" "hw.aux" "auto/" "../" "./")
+
+ ("/Users/izzy/" (21595 41421 0 0) "writeup.txt" "workspace/" "go/" "brainstorm.pdf" "brainstorm.graphml" "Public/" "Pictures/" "Music/" "Movies/" "Library/" "Dropbox/" "Downloads/" "Documents/" "Desktop/" "Applications/" ".zshrc.euclid" ".zshrc.archimedes" ".zshrc-e" ".zshrc" ".zsh_history" ".zsh-update" ".zcompdump-Tyler’s MacBook Pro-5.0.5" ".zcompdump-Tyler’s MacBook Pro (8)-5.0.5" ".zcompdump-Tyler’s MacBook Pro (7)-5.0.5" ".zcompdump-Tyler’s MacBook Pro (6)-5.0.5" ".zcompdump-Tyler’s MacBook Pro (5)-5.0.5" ".zcompdump-Tyler’s MacBook Pro (3)-5.0.5" ".zcompdump-Tyler’s MacBook Pro (10)-5.0.5" ".xmonad/" ".xmobarrc" ".xinitrc" ".viminfo" ".subversion/" ".ssh/" ".rcrc" ".python_history" ".pip/" ".overtone/" ".oh-my-zsh/" ".npm/" ".mjolnir/" ".m2/" ".lldb/" ".lesshst" ".lein/" ".julia_history" ".gtkrc-2.0" ".gitignore_global" ".gitconfig" ".ghc/" ".gemrc" ".gem/" ".emacs~" ".emacs.d/" ".emacs" ".dropbox/" ".dotfiles/" ".config/" ".cache/" ".bin/" ".bash_history" ".atom/" ".Xresources" ".Xmodmaprc" ".Trash/" ".ReadMe.md" ".DS_Store" ".CFUserTextEncoding" ".Afterglow.itermcolors" ".#xmobarrc#" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/math410/" (21595 40635 0 0) "hw9/" "hw8/" "hw7/" "hw6/" "hw5/" "hw4/" "hw3/" "hw2/" "hw14/" "hw11/" "hw10/" "hw1/" "hw0/" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/math410/hw14/" (21595 40635 0 0) "../" "./")
+
+ ("/Users/izzy/.emacs.d/config/modes/shell/" (21594 20294 0 0) "keys.el" "behaviors.el" "../" "./")
+
+ ("/Users/izzy/.emacs.d/config/modes/text/" (21594 20299 0 0) "keys.el" "behaviors.el" "../" "./")
+
+ ("/Users/izzy/.emacs.d/config/modes/" (21594 20304 0 0) "text/" "shell/" "prog/" "markdown/" "html/" "haskell/" "c-common/" "../" "./")
+
+ ("/Users/izzy/Documents/school/" (21594 43885 0 0) "sem8/" "old/" "homework.log" "homework.cls~" "homework.cls" "cs_depart/" "auto/" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/math410/hw7/" (21594 46986 0 0) "polyinterp.jl" "hw.tex" "hw.pdf" "hw.log" "hw.aux" "auto/" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/math410/hw3/" (21594 45992 0 0) "newton.jl" "missfont.log" "hw.tex~" "hw.tex" "hw.pyg" "hw.pdf" "hw.log" "hw.dvi" "hw.aux" "code/" "auto/" "../" "./")
+
+ ("/Users/izzy/Dropbox/school/sem8/math410/hw3/" (21594 42696 0 0) "newton.jl" "missfont.log" "hw.tex~" "hw.tex" "hw.pdf" "hw.log" "hw.dvi" "hw.aux" "code/" "auto/" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/math410/hw4/" (21572 6086 0 0) "hw.tex~" "hw.tex" "auto/" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/math410/hw5/" (21572 6154 0 0) "i_did_this_on_paper" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/math410/hw6/" (21572 6154 0 0) "i_did_this_on_paper" "../" "./")
+
+ ("/Users/izzy/Documents/" (21573 24817 0 0) "school/" "Afterglow.itermcolors" ".localized" "../" "./")
+
+ ("/Users/izzy/Documents/school/sem8/" (21572 5968 0 0) "math410/" "cse5xx/" "cse423/" "cse331/" "../" "./")
+
+ ("/Users/izzy/.emacs.d/elpa/" (21594 40774 0 0) "yasnippet-readme.txt" "yasnippet-20141102.1554/" "smex-20141027.245/" "readline-complete-readme.txt" "readline-complete-20141016.228/" "rainbow-delimiters-20141103.1405/" "rainbow-blocks-readme.txt" "rainbow-blocks-20140306.1033/" "queue-0.1.1/" "popup-20141002.320/" "pkg-info-20140610.630/" "julia-mode-readme.txt" "julia-mode-20141019.941/" "haste-20141030.1334/" "go-mode-20141025.219/" "fill-column-indicator-readme.txt" "fill-column-indicator-20140509.1101/" "epl-20140823.609/" "dash-20141008.712/" "clojure-mode-20141101.1/" "cider-readme.txt" "cider-20141103.739/" "auto-complete-readme.txt" "auto-complete-20141103.105/" "archives/" "../" "./")
+
+ ("/Users/izzy/.emacs.d/elpa/haste-20141030.1334/" (21594 40774 0 0) "haste.elc" "haste.el" "haste-pkg.elc" "haste-pkg.el" "haste-autoloads.el~" "haste-autoloads.el" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
