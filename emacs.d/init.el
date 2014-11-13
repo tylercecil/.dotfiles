@@ -34,5 +34,6 @@
 
 ;;
 ;; Load all mode related settings
+;; TODO: Make this lazy based on the current mode...
 ;;
 (load-directory "~/.emacs.d/config/modes")

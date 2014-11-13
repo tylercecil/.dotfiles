@@ -44,6 +44,8 @@
 ;; Delimiters
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (electric-pair-mode 1)
+(add-to-list 'electric-pair-pairs '(?\{ . ?\}))
+(add-to-list 'electric-pair-pairs '(?\{ . ?\}))
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 
 ;; y-or-n over yes-or-no
