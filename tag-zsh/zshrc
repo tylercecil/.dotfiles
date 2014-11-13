@@ -40,12 +40,19 @@ ZSH_THEME="izzyc"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
+plugins=(git autojump)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=~/.cabal/bin:~/.bin/:$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl
+export PATH=~/.cabal/bin:~/.bin:$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/core_perl
+
+# Google Go setup
+################################################################
+export PATH=$PATH:/usr/local/opt/go/libexec/bin
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 
 #Custom Commands
 ################################################################
@@ -80,3 +87,8 @@ fi
 #Start X
 ################################################################
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
+
+#Emacs Mode
+if [[ -n ${INSIDE_EMACS} ]]; then
+   unsetopt zle
+fi
