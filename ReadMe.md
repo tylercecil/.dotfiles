@@ -7,4 +7,9 @@ use anything that seems interesting.
 
 I manage my dotfiles using the
 [rcm | https://github.com/thoughtbot/rcm] toolchain. I cannot endorse
-this tool enough, it really saves me a bunch of time! 
+this tool enough, it really saves me a bunch of time!
+
+TODO
+----
+I am in the process of migrating my emacs setup to use use-package. I
+need to remeber to finish doing this.
