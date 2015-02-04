@@ -1,3 +1,2 @@
 EXCLUDES="*~ ReadMe.md"
 #SYMLINK_DIRS="emacs.d  bin"
-TAGS="git emacs zsh X11 xmonad gtk lighttable"
