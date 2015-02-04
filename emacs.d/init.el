@@ -7,33 +7,28 @@
 ;; finally makes a recursive load to config/modes for all mode settings.
 ;;
 
-(load "~/.emacs.d/util/load-directory.el")
+;;
+;; /lisp provides any functions I may have written, that are ultimately just
+;; utilities.
+;;
+(load "~/.emacs.d/lisp/load-directory.el")
+(load-directory "~/.emacs.d/lisp")
 
 ;;
 ;; List of directories that need to be in the load path.
 ;;
-(defun add-path (path)
-  "Add a path to load-path"
-  (add-to-list 'load-path path))
-(mapcar 'add-path '("~/.emacs.d/config"
-                    "~/.emacs.d/config/theme"
-                    "~/.emacs.d/config/modes"))
+(mapcar (lambda(path) (add-to-list 'load-path path))
+        '("~/.emacs.d/config"
+          "~/.emacs.d/config/theme"
+          "~/.emacs.d/config/modes"))
 
 ;;
-;; Load Files
+;; Load files that must be loaded first, for some reason or another
 ;;
 (mapcar 'load '("package-behavior"
-                "keys"
-                "behaviors"
-                "theme"))
+                "use-package-bootstrap"))
 
 ;;
-;; Load any util scripts I may have
+;; Everything in ~/.emacs.d/config will then be loaded
 ;;
-(load-directory "~/.emacs.d/util")
-
-;;
-;; Load all mode related settings
-;; TODO: Make this lazy based on the current mode...
-;;
-(load-directory "~/.emacs.d/config/modes")
+(load-directory "~/.emacs.d/config")

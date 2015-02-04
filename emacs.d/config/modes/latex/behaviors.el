@@ -1,10 +1,14 @@
 ;; Autofill and flyspell
-(add-hook 'LaTeX-mode-hook 'auto-fill-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'text-mode-hook 'auto-fill-mode)
+(add-hook 'text-mode-hook 'flyspell-mode)
+
+;; For outline views (hide/show sections, chapters, etc.)
+(add-hook 'TeX-mode-hook '(lambda () (TeX-fold-mode 1)))
+(add-hook 'TeX-mode-hook '(lambda () (outline-minor-mode 1)))
 
 ;; Mathmode and reftex
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+(add-hook 'TeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'TeX-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
 
 ;; File saving things
@@ -12,6 +16,7 @@
 (setq TeX-parse-self t)
 (setq-default TeX-master nil)
 
-;; XeTeX, cause I do unicode 'n stuff
-(setq-default TeX-engine 'XeTeX)
+;; LuaTeX stuff
 (setq-default TeX-PDF-mode t)
+(setq-default TeX-engine 'luatex)
+(setq-default TeX-command-extra-options "-shell-escape")
