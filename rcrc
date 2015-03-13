@@ -1,2 +1,2 @@
 EXCLUDES="*~ ReadMe.md"
-SYMLINK_DIRS="emacs.d  bin config xmonad"
+SYMLINK_DIRS="emacs.d  bin config xmonad antigen"
