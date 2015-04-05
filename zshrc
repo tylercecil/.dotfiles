@@ -1,4 +1,4 @@
-#
+x#
 # Setup Antigen
 #
 source .antigen/antigen.zsh
@@ -27,6 +27,16 @@ if [[ `uname` == 'Darwin' ]]; then
     antigen bundle osx
 fi
 
+# Start X if needed
+if [[ -z $DISPLAY && $XDG_VTNG -eq 1 ]]; then
+    startx
+fi
+
+# Emacs Mode
+if [[ -n ${INSIDE_EMACS} ]]; then
+    unsetopt zle
+fi
+
 #
 # Commands
 #
@@ -42,11 +52,11 @@ alias p="python"
 alias p2="python2"
 alias p3="python3"
 alias bp="bptyon"
-alias ls="sleep 1; ls"
 
 # emacs
 alias e="emacs"
 alias ema="emacs"
+alias enw="emacs -nw"
 
 # navigation
 alias j="z"
