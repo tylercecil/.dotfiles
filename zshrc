@@ -37,12 +37,21 @@ function mkcd(){
     cd $1;
 }
 
+# python
 alias p="python"
 alias p2="python2"
 alias p3="python3"
+alias bp="bptyon"
+alias ls="sleep 1; ls"
 
+# emacs
 alias e="emacs"
 alias ema="emacs"
+
+# navigation
+alias j="z"
+alias jb="cd -"
+alias zb="cd -"
 
 export LESSOPEN="| src-hilite-lesspipe.sh %s"
 export LESS=' -R '
@@ -58,3 +67,6 @@ export PATH=$PATH:/usr/local/bin:/usr/bin:/usr/bin/core_perl
 # Apply Antigen
 #
 antigen apply
+
+# OPAM configuration
+. /Users/tylercecil/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
