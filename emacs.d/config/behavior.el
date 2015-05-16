@@ -1,5 +1,3 @@
-(use-package diminish)
-
 ;;
 ;; Autocomplete config
 ;;
