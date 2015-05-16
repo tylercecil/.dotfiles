@@ -27,6 +27,16 @@ if [[ `uname` == 'Darwin' ]]; then
     antigen bundle osx
 fi
 
+# Start X if needed
+if [[ -z $DISPLAY && $XDG_VTNG -eq 1 ]]; then
+    startx
+fi
+
+# Emacs Mode
+if [[ -n ${INSIDE_EMACS} ]]; then
+    unsetopt zle
+fi
+
 #
 # Commands
 #
@@ -46,6 +56,7 @@ alias bp="bpython"
 # emacs
 alias e="emacs"
 alias ema="emacs"
+alias enw="emacs -nw"
 
 # navigation
 alias j="z"
