@@ -1,3 +1,6 @@
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "emacs.d/config/smyx"]
+	path = emacs.d/config/smyx
+	url = https://github.com/tacit7/smyx.git
