@@ -41,8 +41,7 @@ function mkcd(){
 alias p="python"
 alias p2="python2"
 alias p3="python3"
-alias bp="bptyon"
-alias ls="sleep 1; ls"
+alias bp="bpython"
 
 # emacs
 alias e="emacs"
