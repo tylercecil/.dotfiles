@@ -3,3 +3,6 @@
 	name = Izzy Cecil
 [core]
 	excludesfile = /home/izzy/.gitignore_global
+
+[push]
+    default = simple
