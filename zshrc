@@ -78,5 +78,9 @@ export PATH=$PATH:/usr/local/bin:/usr/bin:/usr/bin/core_perl
 #
 antigen apply
 
+# Go Lang config
+export GOROOT=$HOME/workspace/go
+export PATH=$PATH:$GOROOT/bin
+
 # OPAM configuration
 . /Users/tylercecil/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
