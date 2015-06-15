@@ -11,6 +11,13 @@
   :diminish auto-complete-mode)
 
 ;;
+;; Acejump mode lets me move around the screen quickly
+;;
+(use-package ace-jump-mode
+  :ensure t
+  :bind ("C-." . ace-jump-mode))
+
+;;
 ;; YAS
 ;;
 (use-package yasnippet
