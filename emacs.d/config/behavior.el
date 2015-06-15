@@ -15,7 +15,7 @@
 ;;
 (use-package ace-jump-mode
   :ensure t
-  :bind ("C-." . ace-jump-mode))
+  :bind ("C-g" . ace-jump-mode))
 
 ;;
 ;; YAS
