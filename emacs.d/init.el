@@ -32,3 +32,6 @@
 (load-directory "~/.emacs.d/lisp")
 
 (load-directory "~/.emacs.d/config")
+
+;; Poof-general is loaded separately.
+(load "~/.emacs.d/proof-general/generic/proof-site.el")

@@ -4,3 +4,6 @@
 [submodule "emacs.d/config/smyx"]
 	path = emacs.d/config/smyx
 	url = https://github.com/tacit7/smyx.git
+[submodule "emacs.d/proof-general"]
+	path = emacs.d/proof-general
+	url = git@github.com:cpitclaudel/proof-general.git
