@@ -78,6 +78,13 @@
 (use-package haste
   :ensure t)
 
+;;
+;; Inc / Dec numbers with C-c +/-
+;;
+(use-package evil-numbers
+  :ensure t
+  :bind (("C-c +" . evil-numbers/inc-at-pt)
+         ("C-c -" . evil-numbers/dec-at-pt)))
 
 ;;
 ;; File Settings
