@@ -129,30 +129,27 @@
 ;;
 ;; Theme things
 ;;
-;;(use-package highlight-chars
-;;  :ensure t
-;;  :init
-;;  (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
-;;  (add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace)
-;;  :config
-;;  (hc-highlight-tabs))
+(use-package highlight-chars
+ :ensure t
+ :init
+ (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
+ (add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace)
+ :config
+ (hc-highlight-tabs))
 
-;;(use-package fill-column-indicator
-;;  :ensure t
-;;  :init
-;;  (add-hook 'font-lock-mode-hook (lambda () (fci-mode 80)))
-;;  :config
-;;  (setq fci-rule-column 80))
-
-
-
+(use-package fill-column-indicator
+ :ensure t
+ :init
+ (add-hook 'font-lock-mode-hook (lambda () (fci-mode 80)))
+ :config
+ (setq fci-rule-column 80))
 
 ;; Don't use messages that you don't read
 (setq initial-scratch-message "")
 (setq inhibit-startup-message t)
 
 ;; Don't let Emacs hurt your ears
-(setq visible-bell t)
+(setq ring-bell-function 'ignore)
 
 ;; Highlight line
 (global-hl-line-mode)
