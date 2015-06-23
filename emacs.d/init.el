@@ -4,7 +4,6 @@
 ;; Date:   Sat Mar 28 13:30:00 MDT 2015
 ;;
 
-
 ;;
 ;; Initialize packages and setup use-package
 ;;
@@ -30,8 +29,4 @@
 ;;
 (load "~/.emacs.d/lisp/load-directory.el")
 (load-directory "~/.emacs.d/lisp")
-
 (load-directory "~/.emacs.d/config")
-
-;; Poof-general is loaded separately.
-(load "~/.emacs.d/proof-general/generic/proof-site.el")
