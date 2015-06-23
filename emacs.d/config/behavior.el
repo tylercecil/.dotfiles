@@ -66,11 +66,11 @@
 (use-package smex
   :ensure t
   :defer 2
+  :bind (("M-x" . smex) ("M-X" . execute-extended-command))
   :commands smex
   :config
   (smex-initialize)
   (setq smex-prompt-string "λ: "))
-
 
 ;;
 ;; Hastbin
