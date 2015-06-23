@@ -1,9 +1,8 @@
 #
 # Setup Antigen
 #
-source .antigen/antigen.zsh
+source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
-antigen theme kennethreitz
 
 #
 # Antigen Bundles
@@ -19,6 +18,16 @@ antigen bundle cabal
 antigen bundle web-search
 
 #
+# Antigen Theme
+#
+if [[ -n ${INSIDE_EMACS} ]]; then
+    antigen theme blinks
+    setopt emacs
+else
+    antigen theme kennethreitz
+fi
+
+#
 # OS Specific things
 #
 if [[ `uname` == 'Darwin' ]]; then
@@ -30,11 +39,6 @@ fi
 # Start X if needed
 if [[ -z $DISPLAY && $XDG_VTNG -eq 1 ]]; then
     startx
-fi
-
-# Emacs Mode
-if [[ -n ${INSIDE_EMACS} ]]; then
-    unsetopt zle
 fi
 
 #
