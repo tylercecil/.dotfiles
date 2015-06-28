@@ -46,17 +46,37 @@
 (use-package projectile
   :ensure t)
 
-(use-package smex
+;;
+;; Helm. A very nice/fancy selection engine.
+;;
+;; helm-autoresize-mode                : Auto resize the complete window
+;; helm-push-mark-mode                 : Helm movements will push the mark
+;; helm-quick-update                   : do not display invisible candidates
+;; helm-split-window-in-side-p         : open helm buffer inside current window, not occupy whole other window
+;; helm-buffers-fuzzy-matching t       : fuzzy matching buffer names when non--nil
+;; helm-move-to-line-cycle-in-source t : move to end or beginning of source when reaching top or bottom of source.
+;; helm-scroll-amount 8                : scroll 8 lines other window using M-<next>/M-<prior>
+;;
+;; TODO: I need to continue to look into this, and see if I'm using everything I
+;; could be.
+;;
+(use-package helm
   :ensure t
   :demand
   :bind (("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring))
   :config
-  (smex-initialize)
-  (setq smex-prompt-string "λ: "))
-
+  (setq helm-autoresize-mode t
+        helm-push-mark-mode  t
+        helm-adaptative-mode t
+        helm-quick-update    t
+        helm-split-window-in-side-p t
+        helm-buffers-fuzzy-matching t
+        helm-move-to-line-cycle-in-source t
+        helm-scroll-amount 8)
+  (helm-mode 1))
 ;;
-;; Hastbin
+;; Hastbin. If I haste a selection, it posts it to hastebin, and gives me a link.
 ;;
 (use-package haste
   :ensure t)
@@ -72,7 +92,6 @@
 ;;
 ;; File Settings
 ;;
-
 ;; Makes <filename>~ be a copy ONLY WHEN the original file is hard
 ;; linked. See http://kb.iu.edu/data/acxl.html for more.
 (setq backup-by-copying-when-linked t)
