@@ -40,20 +40,17 @@
 (add-hook 'text-mode-hook 'auto-fill-mode)
 
 ;;
-;; IDO
+;; Projectile. This tells emacs to treat git repos as projects.
+;; By doing this, I can do some neat helm things.
 ;;
-(use-package ido
-  :config
-  (setq ido-cannot-complete-command 'ido-next-match)
-  (setq ido-enable-flex-matching t)
-  (setq ido-everywhere t)
-  (ido-mode t))
+(use-package projectile
+  :ensure t)
 
 (use-package smex
   :ensure t
-  :defer 2
-  :bind (("M-x" . smex) ("M-X" . execute-extended-command))
-  :commands smex
+  :demand
+  :bind (("M-x" . helm-M-x)
+         ("M-y" . helm-show-kill-ring))
   :config
   (smex-initialize)
   (setq smex-prompt-string "λ: "))
