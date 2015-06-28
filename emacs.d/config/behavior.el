@@ -1,14 +1,6 @@
 ;;
 ;; Autocomplete config
 ;;
-(use-package auto-complete
-  :ensure t
-  :config
-  (ac-config-default)
-  (ac-set-trigger-key "TAB")
-  (ac-set-trigger-key "<tab>")
-  (ac-flyspell-workaround)
-  :diminish auto-complete-mode)
 
 ;;
 ;; Acejump mode lets me move around the screen quickly
