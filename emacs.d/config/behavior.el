@@ -1,5 +1,7 @@
 ;;
-;; Autocomplete config
+;; General behavior of emacs. Behaviors which should act globally.
+;; This tends to include things like movement, completion, saving
+;; behavior, ect...
 ;;
 
 ;;
