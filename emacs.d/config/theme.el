@@ -70,3 +70,25 @@
   (menu-bar-mode -99)
   ;; Font
   (set-frame-font "Anonymous Pro 14"))
+
+;;
+;; Solarized Color theme
+;;
+(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(load-theme 'solarized t)
+
+(setq-default frame-background-mode 'light)
+(set-frame-parameter nil 'background-mode 'light)
+
+(enable-theme 'solarized)
+
+(defun toggle-solarized ()
+  "Toggles between solarized light and dark"
+  (interactive)
+  (setq bg-toggle (if (equal frame-background-mode 'dark)
+                  'light
+                'dark))
+  (setq-default frame-background-mode bg-toggle)
+  (set-frame-parameter nil 'background-mode bg-toggle)
+
+  (enable-theme 'solarized))
