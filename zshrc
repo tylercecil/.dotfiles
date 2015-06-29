@@ -22,7 +22,6 @@ antigen bundle web-search
 #
 if [[ -n ${INSIDE_EMACS} ]]; then
     antigen theme blinks
-    setopt emacs
 else
     antigen theme kennethreitz
 fi
