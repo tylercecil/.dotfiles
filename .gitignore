@@ -3,3 +3,4 @@ emacs.d/ac-comphist.dat
 emacs.d/elpa
 emacs.d/ido.last
 emacs.d/smex-items
+emacs.d/helm-adaptive-history
