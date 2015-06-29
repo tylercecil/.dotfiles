@@ -7,6 +7,11 @@
   :init (add-hook 'prog-mode-hook 'rainbow-delimiters-mode))
 
 ;;
+;; Highlights matching parens.
+;;
+(show-paren-mode 1)
+
+;;
 ;; y-or-n over yes-or-no
 ;;
 (fset 'yes-or-no-p 'y-or-n-p)
