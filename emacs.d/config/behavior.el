@@ -63,6 +63,7 @@
 (use-package helm
   :ensure t
   :demand
+  :diminish helm-mode
   :bind (("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring))
   :config
