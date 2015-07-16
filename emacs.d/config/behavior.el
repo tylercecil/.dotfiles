@@ -88,15 +88,24 @@ point reaches the beginning or end of the buffer, stop there."
   :bind (("M-x" . helm-M-x)
          ("M-y" . helm-show-kill-ring))
   :config
-  (setq helm-autoresize-mode t
-        helm-push-mark-mode  t
-        helm-adaptative-mode t
-        helm-quick-update    t
-        helm-split-window-in-side-p t
-        helm-buffers-fuzzy-matching t
+  ;; rebind tab to run persistent action
+  (define-key helm-map (kbd "<tab>") 'helm-execute-persistent-action)
+  ;; make TAB works in terminal
+  (define-key helm-map (kbd "C-i") 'helm-execute-persistent-action)
+  ;;list actions using C-z
+  (define-key helm-map (kbd "C-z")  'helm-select-action)
+  (setq helm-quick-update                 t
+        helm-split-window-in-side-p       t
+        helm-buffers-fuzzy-matching       t
         helm-move-to-line-cycle-in-source t
-        helm-scroll-amount 8)
-  (helm-mode 1))
+        helm-scroll-amount                8)
+  (helm-mode            t)
+  (helm-autoresize-mode t)
+  (helm-adaptive-mode   t)
+  ;; (helm-push-mark-mode  t)
+  )
+
+
 ;;
 ;; Hastbin. If I haste a selection, it posts it to hastebin, and gives me a link.
 ;;
