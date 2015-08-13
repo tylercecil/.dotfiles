@@ -1,4 +1,4 @@
-x#
+#
 # Setup Antigen
 #
 source .antigen/antigen.zsh
@@ -28,9 +28,8 @@ if [[ `uname` == 'Darwin' ]]; then
 fi
 
 # Start X if needed
-if [[ -z $DISPLAY && $XDG_VTNG -eq 1 ]]; then
-    startx
-fi
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
+
 
 # Emacs Mode
 if [[ -n ${INSIDE_EMACS} ]]; then
