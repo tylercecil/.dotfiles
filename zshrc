@@ -1,9 +1,8 @@
 #
 # Setup Antigen
 #
-source .antigen/antigen.zsh
+source ~/.antigen/antigen.zsh
 antigen use oh-my-zsh
-antigen theme kennethreitz
 
 #
 # Antigen Bundles
@@ -19,6 +18,15 @@ antigen bundle cabal
 antigen bundle web-search
 
 #
+# Antigen Theme
+#
+if [[ -n ${INSIDE_EMACS} ]]; then
+    antigen theme blinks
+else
+    antigen theme kennethreitz
+fi
+
+#
 # OS Specific things
 #
 if [[ `uname` == 'Darwin' ]]; then
@@ -30,11 +38,6 @@ fi
 # Start X if needed
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
 
-
-# Emacs Mode
-if [[ -n ${INSIDE_EMACS} ]]; then
-    unsetopt zle
-fi
 
 #
 # Commands
@@ -50,7 +53,7 @@ function mkcd(){
 alias p="python"
 alias p2="python2"
 alias p3="python3"
-alias bp="bptyon"
+alias bp="bpython"
 
 # emacs
 alias e="emacs"
@@ -69,13 +72,16 @@ export LESS=' -R '
 # Defaults
 #
 export EDITOR='ema'
-export PATH=~/.cabal/bin:~/.bin:$PATH:/usr/local/sbin
-export PATH=$PATH:/usr/local/bin:/usr/bin:/usr/bin/core_perl
+export PATH=~/.cabal/bin:~/.bin:/usr/local/bin:$PATH:/usr/local/sbin:/usr/bin/core_perl
 
 #
 # Apply Antigen
 #
 antigen apply
+
+# Go Lang config
+export GOROOT=$HOME/workspace/go
+export PATH=$PATH:$GOROOT/bin
 
 # OPAM configuration
 . /Users/tylercecil/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

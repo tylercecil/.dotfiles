@@ -1,8 +1,11 @@
 (use-package tex-site
   :ensure auctex
+  ;; :mode ("\\.tex\\'" . auctex-mode)
+  :commands (LaTeX-mode plain-tex-mode)
   :config
   (TeX-fold-mode 1)
   (outline-minor-mode 1)
+
   ;; Mathmode and reftex
   (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
   (add-hook 'TeX-mode-hook 'turn-on-reftex)

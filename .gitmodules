@@ -1,3 +1,12 @@
 [submodule "antigen"]
 	path = antigen
 	url = https://github.com/zsh-users/antigen.git
+[submodule "emacs.d/proof-general"]
+	path = emacs.d/proof-general
+	url = git@github.com:cpitclaudel/proof-general.git
+[submodule "emacs.d/emacs-color-theme-solarized"]
+	path = emacs.d/emacs-color-theme-solarized
+	url = git@github.com:sellout/emacs-color-theme-solarized.git
+[submodule "emacs.d/smyx"]
+	path = emacs.d/smyx
+	url = git@github.com:kaushalmodi/smyx.git
