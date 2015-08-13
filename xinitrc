@@ -5,7 +5,7 @@
 xmodmap .Xmodmaprc
 
 # Set the typematic delay and rate
-xset r rate 250 30    #A 250ms delay, and 30Hz repeat
+xset r rate 300 30    #A 250ms delay, and 30Hz repeat
 
 # Set mouse pointer
 xsetroot -cursor_name left_ptr
