@@ -73,9 +73,11 @@
  (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
  (add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace))
 
-;; (use-package fill-column-indicator
-;;   :ensure t
-;;   :config (add-hook 'prog-mode-hook 'fci-mode))
+(use-package fill-column-indicator
+  :ensure t
+  :config
+  (define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
+  (global-fci-mode 1))
 
 ;; Highlight line
 (global-hl-line-mode)
@@ -108,6 +110,10 @@
 ;; No line-wrap
 (set-default 'truncate-lines t)
 
+;; I'm considering using speedbar, but I would like it in the same window.
+(use-package sr-speedbar
+  :ensure t)
+
 ;; Theme in X
 (when (display-graphic-p)
   (use-package exec-path-from-shell
@@ -132,7 +138,7 @@
 (setq-default frame-background-mode 'light)
 (set-frame-parameter nil 'background-mode 'light)
 (load-theme 'solarized t)
-(load-theme 'smyx t)
+;;(load-theme 'smyx t)
 
 (setq -toggle-theme 'smyx)
 (defun toggle-theme ()

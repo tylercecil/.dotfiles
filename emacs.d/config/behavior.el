@@ -68,7 +68,9 @@ point reaches the beginning or end of the buffer, stop there."
 ;;
 (use-package company
   :ensure t
-  :config (global-company-mode t))
+  :diminish company-mode
+  :config
+  (global-company-mode t))
 
 ;;
 ;; Helm. A very nice/fancy selection engine.
@@ -109,27 +111,27 @@ point reaches the beginning or end of the buffer, stop there."
   )
 
 (use-package helm-company
-  :ensure t)
-
+  :ensure t
+ )
 ;;
 ;; Acejump mode lets me move around the screen quickly. I'm going ALL ace mode.
 ;;
 (use-package ace-jump-mode
   :ensure t
   :bind ("C-c SPC" . ace-jump-mode))
+
 (use-package ace-isearch
   :ensure t
+  :diminish ace-isearch-mode
   :config
-  (progn
-    (use-package helm-swoop
-      :ensure t
-      :config
-      (progn
-        (bind-key "C-r" 'helm-previous-line helm-swoop-map)
-        (bind-key "C-s" 'helm-next-line helm-swoop-map)
-        (bind-key "C-r" 'helm-previous-line helm-multi-swoop-map)
-        (bind-key "C-s" 'helm-next-line helm-multi-swoop-map)))
-    (global-ace-isearch-mode 1)))
+  (progn (use-package helm-swoop
+           :ensure t
+           :config
+           (progn (bind-key "C-r" 'helm-previous-line helm-swoop-map)
+                  (bind-key "C-s" 'helm-next-line helm-swoop-map)
+                  (bind-key "C-r" 'helm-previous-line helm-multi-swoop-map)
+                  (bind-key "C-s" 'helm-next-line helm-multi-swoop-map)))
+         (global-ace-isearch-mode 1)))
 (use-package ace-window
   :ensure t
   :bind ("C-x o" . ace-window))
