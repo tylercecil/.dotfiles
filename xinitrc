@@ -20,7 +20,7 @@ compton --config ~/.config/compton.conf &
 # Start trayer, a system tray to host my icons for things.
 #Alpha is set to 0 so that compton will set the alpha for us
 trayer --edge top --align right --SetDockType true --SetPartialStrut true \
- --expand true --width 10 --transparent true --alpha 0 --tint 0x101011 --height 20 &
+ --expand true --width 10 --transparent true --alpha 50 --tint 0x101011 --height 20 &
 
 # Start things that I want on on startup
 spotify &

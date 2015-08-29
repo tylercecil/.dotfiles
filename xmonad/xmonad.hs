@@ -1,12 +1,12 @@
 --
 -- Izzy Cecil XMonad Config File
 --
+{-# LANGUAGE OverloadedStrings #-}
 
 import XMonad
 import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
-import XMonad.Layout.Spacing
 import Data.Monoid
 import System.Exit
 
@@ -29,7 +29,6 @@ myClickJustFocuses = False
 -- Width of the window border in pixels.
 myBorderWidth   = 0
 
-
 -- modMask lets you specify which modkey you want to use. The default
 -- is mod1Mask ("left alt").  You may also consider using mod3Mask
 -- ("right alt"), which does not conflict with emacs keybindings. The
@@ -50,7 +49,7 @@ myWorkspaces    = map show [1..8] ++ ["spotify"]
 
 -- Border colors for unfocused and focused windows, respectively.
 -- I keep trac of activity with transparency
-myNormalBorderColor  = "#000066"
+myNormalBorderColor  = "#ffffff"
 myFocusedBorderColor = "#000066"
 
 
@@ -64,8 +63,10 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 
     -- launch dmenu
     -- requires dmenu2
+    -- See dlaunch in ~/.bin/
+    -- Was put into its own file, because spawn is not unicode safe.
     , ((modm,               xK_r     ),
-        spawn "dmenu_run -b -fn 'Anonymous Pro-10' -l 10 -w 500 -p 'Run'")
+        spawn "~/.bin/dlaunch")
 
     -- launch gmrun
     --, ((modm .|. shiftMask, xK_r     ), spawn "gmrun")
@@ -143,7 +144,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
         | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
         , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
     ++
-    
+
     -- mod-arrow keys switch workspaces
     [
       ((modm,               xK_Right),  nextWS)
@@ -194,7 +195,7 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 myLayout = tiled ||| Mirror tiled ||| Full
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = spacing 4 $ Tall nmaster delta ratio
+     tiled   = Tall nmaster delta ratio
 
      -- The default number of windows in the master pane
      nmaster = 1
