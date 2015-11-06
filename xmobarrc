@@ -1,5 +1,6 @@
 Config {
     font = "xft:Anonymous Pro"
+  , alpha = 200
   , bgColor = "#101011"
   , fgColor = "grey"
   , position = TopW L 90

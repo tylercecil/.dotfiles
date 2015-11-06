@@ -1,0 +1,16 @@
+
+xmonad.hs:6:8:
+    Could not find module ‘XMonad.Actions.CycleWS’
+    Use -v to see a list of the files searched for.
+
+xmonad.hs:7:8:
+    Could not find module ‘XMonad.Hooks.DynamicLog’
+    Use -v to see a list of the files searched for.
+
+xmonad.hs:8:8:
+    Could not find module ‘XMonad.Hooks.EwmhDesktops’
+    Use -v to see a list of the files searched for.
+
+xmonad.hs:9:8:
+    Could not find module ‘XMonad.Layout.Spacing’
+    Use -v to see a list of the files searched for.

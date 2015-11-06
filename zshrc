@@ -36,7 +36,7 @@ if [[ `uname` == 'Darwin' ]]; then
 fi
 
 # Start X if needed
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
+[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
 
 
 #
