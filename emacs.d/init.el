@@ -4,21 +4,6 @@
 ;; Date:   Sat Mar 28 13:30:00 MDT 2015
 ;;
 
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("c74e83f8aa4c78a121b52146eadb792c9facc5b1f02c917e3dbb454fca931223" "3c83b3676d796422704082049fc38b6966bcad960f896669dfc21a7a37a748fa" default))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
-
-
-
 ;;
 ;; Initialize packages and setup use-package
 ;;
@@ -31,17 +16,50 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
-;;
-;; Use-package init
-;;
 (eval-when-compile
   (require 'use-package))
 (require 'diminish)
 (require 'bind-key)
+(add-to-list 'load-path "~/.emacs.d/elisp")
+(add-to-list 'load-path "~/.emacs.d/elisp/modes")
 
-;;
-;; Load recursive loader, utilities, and configurations.
-;;
-(load "~/.emacs.d/lisp/load-directory.el")
-(load-directory "~/.emacs.d/lisp")
-(load-directory "~/.emacs.d/config")
+;; Loads the main config files for emacs. All can be found in the elisp
+;; directory.
+(use-package keyconfig
+  :config (keyconfig-init))
+
+(use-package themeconfig
+  :config (themeconfig-init))
+
+(use-package behaviorconfig
+  :config (behaviorconfig-init))
+
+(use-package styleconfig
+  :config (styleconfig-init))
+
+;; Loads all mode config files. All can be found in the elisp/modes
+;; directory.
+(mapc 'load-library (list "haskell"
+                          ;; "agda"
+                          "c"
+                          "go"
+                          "julia"
+                          "latex"
+                          "markdown"
+                          "multiterm"
+                          "octave"))
+                          ;; "proofgen"))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (yasnippet which-key use-package spaceline solarized-theme rainbow-delimiters projectile multi-term matlab-mode markdown-mode linum-relative key-chord julia-mode highlight-chars helm haste go-mode fill-column-indicator exec-path-from-shell evil-surround evil-numbers evil-nerd-commenter evil-matchit evil-leader company-ghc clang-format auctex ace-jump-mode))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
