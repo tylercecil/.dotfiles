@@ -21,7 +21,7 @@ antigen bundle web-search
 # Antigen Theme
 #
 if [[ -n ${INSIDE_EMACS} ]]; then
-    antigen theme blinks
+    antigen theme imajes
 else
     antigen theme kennethreitz
 fi
@@ -57,8 +57,11 @@ alias bp="bpython"
 
 # emacs
 alias e="emacs"
-alias ema="emacs"
 alias enw="emacs -nw"
+alias ec="emacsclient"
+alias ecn="emacsclient -n"
+alias ecnc="emacsclient -nc"
+alias ecnw="emacsclient -nw"
 
 # navigation
 alias j="z"
