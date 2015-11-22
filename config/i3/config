@@ -164,4 +164,6 @@ bar {
 # Things I want to be launched at start, and have tray
 # icons for.
 exec dropbox
+exec redshift-gtk
 exec wicd-client --tray
+exec unclutter
