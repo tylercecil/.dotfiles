@@ -13,18 +13,11 @@ xsetroot -cursor_name left_ptr
 # Set desktop using feh
 feh --bg-fill ~/Pictures/wallpaper
 
-# Start compton for composting (allows transperancy)
-# Compton hangs with -b... not sure why. This will do.
-compton --config ~/.config/compton.conf &
-
-# Start trayer, a system tray to host my icons for things.
-#Alpha is set to 0 so that compton will set the alpha for us
-trayer --edge top --align right --SetDockType true --SetPartialStrut true \
- --expand true --width 10 --transparent true --alpha 50 --tint 0x101011 --height 20 &
-
 # Start things that I want on on startup
-spotify &
-dropboxd &
+compton -b --backend glx --vsync opengl-swc \
+        --glx-no-stencil --glx-no-rebind-pixmap \
+        --glx-swap-method 2
+syndaemon -i 1 -t -k -d
 
 # Start xmonad. Will kill X when xmonad quits
-exec xmonad
+exec i3
