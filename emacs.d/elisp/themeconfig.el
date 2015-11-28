@@ -7,6 +7,11 @@
 ;; looks and feels.
 
 (defun themeconfig-init ()
+  ;;
+  ;; Space-line is simply power-line with the theming provided by spacemacs
+  ;; (or so it claims). In reality it is just something that looks good enough
+  ;; to me, and worked first try, so... I'm down with that.
+  ;;
   (use-package spaceline-config
     :ensure spaceline
     :config
@@ -15,7 +20,7 @@
           spaceline-workspace-numbers-unicode t
           spaceline-window-numbers-unicode    t
           spaceline-highlight-face-func       'spaceline-highlight-face-evil-state))
-  ;;
+  ;
   ;; Rainbow Delims
   ;;
   (use-package rainbow-delimiters
@@ -74,39 +79,35 @@
   ;; Relative linum mode
   (use-package linum-relative
     :ensure t
+    :init
+    (setq linum-relative-current-symbol ""
+          linum-relative-format         "%3s"
+          linum-relative-plusp-offset   1
+          linum-relative-with-helm      t)
     :config
-    (global-linum-mode 1)
     (linum-relative-on)
-    (linum-relative-enable-helm-support)
-    (setq
-     linum-relative-current-symbol ""
-     linum-relative-format "%3s" ))
-
-  (setq linum-relative-current-symbol "")
-  (setq linum-relative-format "%3s")
+    (global-linum-mode))
 
   ;; No line-wrap
   (set-default 'truncate-lines t)
 
   ;; Theme in X
-  (add-hook 'after-make-frame-functions
-            (lambda (&optional frame)
-              (when (display-graphic-p frame)
-                (use-package exec-path-from-shell
-                  :ensure t
-                  :config (exec-path-from-shell-initialize))
-                ;; Transparency
-                ;; (add-to-list 'default-frame-alist '(alpha 90 90))
-                ;; No Scrollbar
-                (scroll-bar-mode -1)
-                ;; No Toolbar
-                (tool-bar-mode -1)
-                ;; No menu bar
-                (menu-bar-mode -99)
-                ;; Font
-                (set-frame-font "Anonymous Pro 14")
-                (use-package solarized-theme
-                  :ensure t
-                  :config (load-theme 'solarized-light t))))))
+  (when (display-graphic-p)
+    (use-package exec-path-from-shell
+      :ensure t
+      :config (exec-path-from-shell-initialize))
+    ;; Transparency
+    ;; (add-to-list 'default-frame-alist '(alpha 90 90))
+    ;; No Scrollbar
+    (scroll-bar-mode -1)
+    ;; No Toolbar
+    (tool-bar-mode -1)
+    ;; No menu bar
+    (menu-bar-mode -99)
+    ;; Font
+    (set-frame-font "Anonymous Pro 14")
+    (use-package solarized-theme
+      :ensure t
+      :config (load-theme 'solarized-light t))))
 
-  (provide 'themeconfig)
+(provide 'themeconfig)
