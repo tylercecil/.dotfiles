@@ -168,9 +168,7 @@ bar {
 }
 
 # Start composer to fix tearing and in general accellerate things
-exec  compton -b --backend glx --vsync opengl-swc \
-          --glx-no-stencil --glx-no-rebind-pixmap \
-          --glx-swap-method 2
+exec  ~/.bin/comptonconfig
 
 # Give me a background
 exec feh --bg-fill ~/Pictures/wallpaper
