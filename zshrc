@@ -83,8 +83,8 @@ export PATH=~/.cabal/bin:~/.bin:/usr/local/bin:$PATH:/usr/local/sbin:/usr/bin/co
 antigen apply
 
 # Go Lang config
-export GOROOT=$HOME/workspace/go
-export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/workspace/go
+export PATH=$PATH:$GOPATH/bin
 
 # OPAM configuration
 . /Users/tylercecil/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
