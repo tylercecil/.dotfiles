@@ -167,6 +167,14 @@ bar {
 	font pango:DejaVu Sans Mono 8
 }
 
+################################################################################
+# Behaviors other than keystrokes
+################################################################################
+focus_follows_mouse no
+
+################################################################################
+# Start Processes
+################################################################################
 # Start composer to fix tearing and in general accellerate things
 exec  ~/.bin/comptonconfig
 
