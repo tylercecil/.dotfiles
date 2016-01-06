@@ -76,7 +76,7 @@ export LESS=' -R '
 # Defaults
 #
 export EDITOR='ema'
-export PATH=~/.cabal/bin:~/.bin:/usr/local/bin:$PATH:/usr/local/sbin:/usr/bin/core_perl
+export PATH=~/.local/bin:~/.bin:/usr/local/bin:$PATH:/usr/local/sbin:/usr/bin/core_perl
 
 #
 # Apply Antigen
