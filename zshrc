@@ -54,6 +54,7 @@ alias p="python"
 alias p2="python2"
 alias p3="python3"
 alias bp="bpython"
+alias pc="p -c"
 
 # emacs
 alias e="emacs"
