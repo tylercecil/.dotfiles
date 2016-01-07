@@ -47,5 +47,5 @@
                           "latex-config"
                           "markdown-config"
                           "multiterm-config"
-                          "octave-config"))
+                          "octave-config"
                           "proofgen-config"))
