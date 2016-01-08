@@ -27,7 +27,7 @@
        "m <backspace>" 'proof-undo-and-delete-successful-command
        "m <RET>"       'proof-goto-point
        "mb"           'proof-process-buffer
-       "mr"           'proff-retract-buffer
+       "mr"           'proof-retract-buffer
 
        ;; Proof assistant commands.
        "ml" 'proof-display-some-buffers

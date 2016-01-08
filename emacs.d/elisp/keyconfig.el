@@ -47,15 +47,7 @@
     (use-package evil-nerd-commenter
       :ensure t
       :config (evil-leader/set-key
-                "ci" 'evilnc-comment-or-uncomment-lines
-                "cl" 'evilnc-quick-comment-or-uncomment-to-the-line
-                "ll" 'evilnc-quick-comment-or-uncomment-to-the-line
-                "cc" 'evilnc-copy-and-comment-lines
-                "cp" 'evilnc-comment-or-uncomment-paragraphs
-                "cr" 'comment-or-uncomment-region
-                "cv" 'evilnc-toggle-invert-comment-line-by-line
-                "\\" 'evilnc-comment-operator ; if you prefer backslash key
-                ))
+                "c" 'evilnc-comment-operator))
     ;; https://github.com/redguardtoo/evil-matchit
     (use-package evil-matchit
       :ensure t
@@ -63,11 +55,11 @@
     ;; Now I'll do some gross things that are really just for me.
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ;; Enter should add a new line in normal state
-    (evil-define-key 'normal global-map (kbd "RET") (kbd "o <escape>"))
+    (evil-define-key 'normal global-map (kbd "RET") (kbd "i <RET> <escape>"))
     ;; Not sure if I want `evil-indent` or `evil-indent-line`. Line is more emacs like
-    ;; but I think I'll benifit from evil-indent
+    ;; but I think I'll benefit from evil-indent
     (evil-define-key 'normal global-map (kbd "TAB") 'evil-indent)
-    ;; I like moving to the beggining like I did in emacs
+    ;; I like moving to the beginning like I did in emacs
     (evil-define-motion evil-jumpy-begin (count)
       :type inclusive
       (when (= (point) (progn (evil-first-non-blank) (point)))
@@ -77,7 +69,7 @@
     (evil-define-key 'normal global-map (kbd "C-a") 'evil-jumpy-begin)
     (evil-define-key 'motion global-map (kbd "C-a") 'evil-jumpy-begin)
 
-    (evil-define-key 'insert global-map (kbd "C-e") 'evil-end-of-line)
+    (evil-define-key 'insert global-map (kbd "C-e") 'move-end-of-line)
     (evil-define-key 'visual global-map (kbd "C-e") 'evil-end-of-line)
     (evil-define-key 'normal global-map (kbd "C-e") 'evil-end-of-line)
     (evil-define-key 'motion global-map (kbd "C-e") 'evil-end-of-line)
