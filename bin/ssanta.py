@@ -2,8 +2,8 @@
 Quinn + Tyler Cecil
 December 2011
 
-Secret Santa Selector 2000 
-""
+Secret Santa Selector 2000
+"""
 
 from Tkinter import *
 import tkMessageBox
@@ -20,7 +20,7 @@ def build_dict(people, draws):
             dic[person.lower()].append(draw[i])
             drawdeck.remove(draw[i])
     return dic
-            
+
 def main():
 
     def getnames():
@@ -49,7 +49,7 @@ def main():
 
     namebox = Entry(master)
     namebox.pack()
-    
+
     namebox.focus_set()
     #namebox.bind('<Return>', getnames)
 
