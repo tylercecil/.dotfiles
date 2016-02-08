@@ -21,7 +21,7 @@
 (require 'diminish)
 (require 'bind-key)
 (add-to-list 'load-path "~/.emacs.d/elisp")
-(add-to-list 'load-path "~/.emacs.d/elisp/modes")
+(add-to-list 'load-path "~/.emacs.d/modes")
 
 ;; Loads the main config files for emacs. All can be found in the elisp
 ;; directory.
@@ -39,13 +39,13 @@
 
 ;; Loads all mode config files. All can be found in the elisp/modes
 ;; directory.
-(mapc 'load-library (list "haskell"
-                          ;; "agda"
-                          "c"
-                          "go"
-                          "julia"
-                          "latex"
-                          "markdown"
-                          "multiterm"
-                          "octave"))
-                          ;; "proofgen"))
+(mapc 'load-library (list "haskell-config"
+                          ;; "agda-config"
+                          "c-config"
+                          "go-config"
+                          "julia-config"
+                          "latex-config"
+                          "markdown-config"
+                          "multiterm-config"
+                          "octave-config"
+                          "proofgen-config"))

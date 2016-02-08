@@ -82,8 +82,7 @@
     :init
     (setq linum-relative-current-symbol ""
           linum-relative-format         "%3s"
-          linum-relative-plusp-offset   1
-          linum-relative-with-helm      t)
+          linum-relative-plusp-offset   1)
     :config
     (linum-relative-on)
     (global-linum-mode))
