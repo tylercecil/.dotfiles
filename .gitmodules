@@ -13,3 +13,6 @@
 [submodule "emacs.d/PG"]
 	path = emacs.d/PG
 	url = git@github.com:ProofGeneral/PG.git
+[submodule "vim/bundle/Vundle.vim"]
+	path = vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git
