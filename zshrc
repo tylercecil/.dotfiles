@@ -12,9 +12,7 @@ antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle rupa/z
 
 antigen bundle virtualenvwrapper
-
-antigen bundle cabal
-
+antigen bundle stack
 antigen bundle web-search
 
 #
