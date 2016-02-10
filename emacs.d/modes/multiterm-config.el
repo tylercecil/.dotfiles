@@ -4,4 +4,6 @@
   ;; any term mode.
   ;; See https://github.com/capitaomorte/yasnippet/issues/289
   :init (add-hook 'term-mode-hook (lambda()
-                                    (yas-minor-mode -1))))
+                                    (yas-minor-mode -1)))
+  :config
+  (evil-leader/set-key ";" 'multi-term-dedicated-toggle))
