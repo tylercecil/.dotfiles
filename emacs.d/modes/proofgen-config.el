@@ -10,6 +10,8 @@
       proof-delete-empty-windows nil
       proof-splash-enable        nil)
 
+(add-hook 'proof-mode-hook (lambda () (electric-indent-local-mode -1)))
+
 (eval-after-load "proof-script"
   '(progn
      ;; Set up keys (this is on coq-mode... not yet sure how to make it proof-general)
@@ -30,6 +32,7 @@
        "mr"           'proof-retract-buffer
 
        ;; Proof assistant commands.
+       "ma" 'coq-SearchAbout
        "ml" 'proof-display-some-buffers
        "mp" 'proof-prf
        "mt" 'proof-ctxt
