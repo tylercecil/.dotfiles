@@ -41,11 +41,13 @@ fi
 # Commands
 #
 alias rma='rm *~'
-
 function mkcd(){
     mkdir $1;
     cd $1;
 }
+alias ccat='pygmentize -g'
+export LESSOPEN='| pygmentize -g %s'
+
 
 # python
 alias p="python"
@@ -66,9 +68,6 @@ alias ecnw="emacsclient -nw"
 alias j="z"
 alias jb="cd -"
 alias zb="cd -"
-
-export LESSOPEN="| src-hilite-lesspipe.sh %s"
-export LESS=' -R '
 
 #
 # Defaults
