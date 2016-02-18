@@ -90,6 +90,11 @@
   ;; No line-wrap
   (set-default 'truncate-lines t)
 
+  (use-package solarized-theme
+    :ensure t
+    :config (load-theme 'solarized-light t))
+  ;; (load-theme 'whiteboard t)
+
   ;; Theme in X
   (when (display-graphic-p)
     (use-package exec-path-from-shell
@@ -105,8 +110,11 @@
     (menu-bar-mode -99)
     ;; Font
     (set-frame-font "Anonymous Pro 14")
-    (use-package solarized-theme
-      :ensure t
-      :config (load-theme 'solarized-light t))))
+    ;; (set-frame-font "Anonymous Pro 24")
+
+    ))
+
+
+
 
 (provide 'themeconfig)
