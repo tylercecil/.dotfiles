@@ -1,10 +1,13 @@
 (use-package tex-site
   :ensure auctex
-  ;; :mode ("\\.tex\\'" . auctex-mode)
   :commands (LaTeX-mode plain-tex-mode)
   :config
   (TeX-fold-mode 1)
   (outline-minor-mode 1)
+
+  ;; File viewing
+  (setq TeX-view-program-list      '(("zathura" "zathura -P %(outpage) %o"))
+        TeX-view-program-selection '((output-pdf "zathura")))
 
   ;; Mathmode and reftex
   (add-hook 'TeX-mode-hook 'LaTeX-math-mode)
