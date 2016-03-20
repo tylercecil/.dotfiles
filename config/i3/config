@@ -189,3 +189,4 @@ exec unclutter
 exec dropbox
 exec redshift-gtk
 exec wicd-client --tray
+exec caffeine
