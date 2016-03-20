@@ -22,4 +22,8 @@
   ;; LuaTeX stuff
   (setq-default TeX-PDF-mode t)
   (setq-default TeX-engine 'luatex)
-  (setq-default TeX-command-extra-options "-shell-escape"))
+  (setq-default TeX-command-extra-options "-shell-escape")
+
+  ;; Indentation
+  (setq-default LaTeX-item-indent 0)
+  )
