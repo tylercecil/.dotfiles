@@ -41,35 +41,21 @@ fi
 # Commands
 #
 alias rma='rm *~'
-function mkcd(){
+function mkdircd(){
     mkdir $1;
     cd $1;
 }
+
+function mvcd(){
+    mv $1 $2;
+    cd $1;
+}
+
+# Colored Readers
 alias ccat='pygmentize -g'
 export LESSOPEN='| pygmentize -g %s'
 
-
 # python
-alias p="python"
-alias p2="python2"
-alias p3="python3"
-alias bp="bpython"
-alias pc="p -c"
-
-# emacs
-alias e="emacs"
-alias enw="emacs -nw"
-alias ec="emacsclient"
-alias ecn="emacsclient -n"
-alias ecnc="emacsclient -nc"
-alias ecnw="emacsclient -nw"
-
-# navigation
-alias j="z"
-alias jb="cd -"
-alias zb="cd -"
-
-# pacman / yaort
 alias p="python"
 alias p2="python2"
 alias p3="python3"
@@ -95,6 +81,15 @@ alias yup!="yaourt -Syu --aur --noconfirm"
 
 # zsh
 alias resource="source ~/.zshrc"
+
+# Default program launchers
+for ext in 'png' 'jpeg' 'gif' 'jpg'; do
+    alias -s ${ext}=feh
+done
+
+for ext in 'doc' 'docx' 'odt'; do
+    alias -s ${ext}=libreoffice
+done
 
 #
 # Defaults
