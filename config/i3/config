@@ -188,5 +188,5 @@ exec unclutter
 # I would like the following items in my tray.
 exec dropbox
 exec redshift-gtk
-exec wicd-client --tray
+exec nm-applet
 exec caffeine
