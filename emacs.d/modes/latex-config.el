@@ -24,6 +24,17 @@
   (setq-default TeX-engine 'luatex)
   (setq-default TeX-command-extra-options "-shell-escape")
 
+  ;; Make a "Make" command that uses latexmk
+  ;; Note that I always cp the pdf.
+  (push
+   '("Make"
+     "latexmk -outdir=./build -lualatex  -interaction=nonstopmode %t && cp ./build/%s.pdf ./"
+     TeX-run-TeX nil t
+     :help "Make pdf output using latexmk.")
+   TeX-command-list)
+
+  (setq TeX-command-default "Make")
+
   ;; Indentation
   (setq-default LaTeX-item-indent 0)
   )
