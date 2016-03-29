@@ -10,6 +10,15 @@
 #   5) specializes the name of the grading ruberic
 #   6) opens the rubric.
 
+set +x
+
+echo $#
+
+if [ $# -ne 1 ] || ! ls *$1*.tar*.gz > /dev/null 2>&1 ; then
+    echo "This student does not exist!";
+    exit;
+fi
+
 LASTNAME=$1
 TARBALL=`ls *$LASTNAME*.tar*.gz`
 RUBRIC=`ls *.odt`
@@ -19,4 +28,4 @@ mv $TARBALL $LASTNAME
 cp $RUBRIC $LASTNAME/$LASTNAME-$RUBRIC
 cd $LASTNAME
 tar -xvf $TARBALL
-libreoffice $LASTNAME-$RUBUTIC&
+libreoffice $LASTNAME-$RUBRIC &
