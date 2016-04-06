@@ -129,6 +129,8 @@
   (use-package ace-jump-mode
     :ensure t
     :config
-    (evil-leader/set-key "<SPC>" 'ace-jump-mode)))
+    (evil-leader/set-key "<SPC>" 'evil-ace-jump-word-mode)
+    (evil-leader/set-key "S-<SPC>" 'evil-ace-jump-char-mode)
+    ))
 
 (provide 'behaviorconfig)

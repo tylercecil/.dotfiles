@@ -10,7 +10,7 @@
 ;; do as I'm learning Vim. Some that I've ommited, but seem like they
 ;; may be cool in the future are
 ;; * evil-args
-;; * evil-textobj-anyblock (Might be cool to move latex blocks around.
+;; * evil-textobj-anyblock (Might be cool to move latex blocks around.)
 ;; *
 (defun keyconfig-init ()
   (use-package evil
@@ -52,13 +52,17 @@
     (use-package evil-matchit
       :ensure t
       :config (global-evil-matchit-mode 1))
+
     ;; Now I'll do some gross things that are really just for me.
   ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ;; Enter should add a new line in normal state
     (evil-define-key 'normal global-map (kbd "RET") (kbd "i <RET> <escape>"))
+    (evil-define-key 'normal global-map (kbd "<S-return>") (kbd "o <escape>"))
+
     ;; Not sure if I want `evil-indent` or `evil-indent-line`. Line is more emacs like
     ;; but I think I'll benefit from evil-indent
     (evil-define-key 'normal global-map (kbd "TAB") 'evil-indent)
+
     ;; I like moving to the beginning like I did in emacs
     (evil-define-motion evil-jumpy-begin (count)
       :type inclusive
@@ -77,6 +81,6 @@
     (evil-define-key 'insert global-map (kbd "C-p") 'evil-previous-line)
     (evil-define-key 'insert global-map (kbd "C-n") 'evil-next-line)
     (evil-define-key 'insert global-map (kbd "C-k") (kbd "<escape> d $ a"))
-    (evil-define-key 'insert global-map (kbd "C-d") 'evil-delete-char3)))
+    (evil-define-key 'insert global-map (kbd "C-d") 'evil-delete-char)))
 
 (provide 'keyconfig)
