@@ -70,7 +70,7 @@
   ;; Object for environment (with newlines)
   (define-and-bind-text-object "e" "\\\\begin{.*}\n" "\n\\s-*\\\\end{.*}")
   ;; Object for a general macro (only works for single argument macros)
-  (define-and-bind-text-object "m" "\\.*{" "}")
+  (define-and-bind-text-object "m" "\\\\.*{" "}")
   ;; Object for a general macro (only works for single argument macros)
   (define-and-bind-text-object "\\" "\\\\\\[" "\\\\]")
 
@@ -93,16 +93,13 @@
     (push-mark beg)
     (goto-char end)
     (setq mark-active t)
-    (TeX-insert-macro nil))
+    (call-interactively 'TeX-insert-macro nil))
 
   (evil-define-operator evil-preview-tex (beg end)
     "Evil operator to preview latex using preview region"
     :repeat t
     :move-point nil
-    (push-mark beg)
-    (goto-char end)
-    (setq mark-active t)
-    (preview-region nil))
+    (preview-region beg end))
 
   ;; 3 -- Some simple keys for things
   (evil-leader/set-key-for-mode 'latex-mode
@@ -113,15 +110,3 @@
     ;; Preview commands
     "mp" `evil-preview-tex
     "mc" `preview-clearout-buffer))
-
-    ;; "mpp" `preview-at-point
-    ;; "mpe" `preview-environment
-    ;; "mps" `preview-section
-    ;; "mpr" `preview-region
-    ;; "mpb" `preview-buffer
-    ;; ;; un-Preivew commands
-    ;; "mpcp" `preview-clearout-at-point
-    ;; "mpce" `preview-clearout-environment
-    ;; "mpcs" `preview-clearout-section
-    ;; "mpcr" `preview-clearout-region
-    ;; "mpcb" `preview-clearout-buffer))
