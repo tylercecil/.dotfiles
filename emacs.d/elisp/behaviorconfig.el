@@ -35,9 +35,6 @@
   (add-hook 'prog-mode-hook 'flyspell-prog-mode)
   (add-hook 'text-mode-hook 'flyspell-mode)
   (eval-after-load "flyspell" '(diminish 'flyspell-mode))
-  ;; (use-package helm-flyspell
-  ;;   :ensure t
-  ;;   :bind ("M-$" . helm-flyspell-correct))
 
   ;;
   ;; Autofill for text mode
@@ -89,6 +86,29 @@
     ;; (helm-push-mark-mode  t)
     )
 
+  (use-package company
+    :ensure t
+    :config
+    (global-company-mode)
+    (use-package company-quickhelp
+      :ensure t
+      :config
+      (company-quickhelp-mode 1))
+    ;; Taken from https://github.com/company-mode/company-mode/issues/180#issuecomment-55047120
+    (defvar-local company-fci-mode-on-p nil)
+
+    (defun company-turn-off-fci (&rest ignore)
+      (when (boundp 'fci-mode)
+        (setq company-fci-mode-on-p fci-mode)
+        (when fci-mode (fci-mode -1))))
+
+    (defun company-maybe-turn-on-fci (&rest ignore)
+      (when company-fci-mode-on-p (fci-mode 1)))
+
+    (add-hook 'company-completion-started-hook 'company-turn-off-fci)
+    (add-hook 'company-completion-finished-hook 'company-maybe-turn-on-fci)
+    (add-hook 'company-completion-cancelled-hook 'company-maybe-turn-on-fci))
+
   ;;
   ;; Hastbin. If I haste a selection, it posts it to hastebin, and gives me a link.
   ;;
@@ -130,7 +150,6 @@
     :ensure t
     :config
     (evil-leader/set-key "<SPC>" 'evil-ace-jump-word-mode)
-    (evil-leader/set-key "S-<SPC>" 'evil-ace-jump-char-mode)
-    ))
+    (evil-leader/set-key "S-<SPC>" 'evil-ace-jump-char-mode)))
 
 (provide 'behaviorconfig)
