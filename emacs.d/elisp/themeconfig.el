@@ -32,6 +32,7 @@
   ;; Highlights matching parens.
   ;;
   (show-paren-mode 1)
+  (setq show-paren-style `parenthesis)
 
   ;;
   ;; y-or-n over yes-or-no
@@ -110,11 +111,7 @@
     (menu-bar-mode -99)
     ;; Font
     (set-frame-font "Anonymous Pro 14")
-    ;; (set-frame-font "Anonymous Pro 24")
-
+    ;; (set-frame-font "Anonymous Pro 23")
     ))
-
-
-
 
 (provide 'themeconfig)
