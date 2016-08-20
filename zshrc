@@ -51,6 +51,17 @@ function mvcd(){
     cd $1;
 }
 
+function gi(){
+    args=$(echo $@ | sed 's/ /,/g')
+    curl -L -s https://www.gitignore.io/api/$args ;
+}
+fucntion texclean() {
+	setopt null_glob
+	rm -rfv *.aux *.log *.toc auto *.out *.snm *.nav
+	rm -ri *.pdf build
+	unsetopt null_glob
+}
+
 # Colored Readers
 alias ccat='pygmentize -g'
 export LESSOPEN='| pygmentize -g %s'
