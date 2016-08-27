@@ -15,15 +15,6 @@ Rxvt.url-select.underline: true
 !Rxvt.keysym.M-Escape:      perl:keyboard-select:activate
 !Rxvt.keysym.M-s:           perl:keyboard-select:searchxt-common:      default,clipboard,url-select,keyboard-select
 
-!! Emacs Settings
-! ================================================================ !
-Emacs.FontBackend: xft
-Emacs.font: Anonymous Pro-14
-
-!! General Settings
-! ================================================================ !
-*.font: xft:Anonymous Pro:size=14
-
 !! Solarized color scheme for the X Window System
 ! http://ethanschoonover.com/solarized
 ! ================================================================ !
