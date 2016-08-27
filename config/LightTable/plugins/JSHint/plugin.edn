@@ -1,6 +1,0 @@
-{:name "JSHint"
- :author "Kodowa"
- :version "0.0.2"
- :source "https://github.com/LightTable/JSHint"
- :desc "JSHint integration for Light Table"
- :behaviors "jshint.behaviors"}
