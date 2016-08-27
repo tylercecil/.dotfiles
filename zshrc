@@ -21,7 +21,7 @@ antigen bundle web-search
 if [[ -n ${INSIDE_EMACS} ]]; then
     antigen theme imajes
 else
-    antigen theme kennethreitz
+    antigen theme bira
 fi
 
 #
