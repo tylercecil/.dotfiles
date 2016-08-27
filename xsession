@@ -12,12 +12,15 @@ export P4EDITOR=$EDITOR
 # Disable audible bell
 xset -b
 
+# Keyboard setup
+xmodmap .Xmodmaprc
+xset r rate 300 30    #A 250ms delay, and 30Hz repeat
+
 # NOTE: This may break your compose key https://groups.google.com/a/google.com/forum/#!topic/i3-users/YBexXGbik7E
 export GTK_IM_MODULE=xim
 
 # Background color
 xsetroot -solid "#333333"
-
 # Start urxvtd
 urxvtd -q -f -o
 
