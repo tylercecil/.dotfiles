@@ -37,6 +37,9 @@
 (use-package styleconfig
   :config (styleconfig-init))
 
+(use-package gconfig
+  :config (gconfig-init))
+
 ;; Loads all mode config files. All can be found in the elisp/modes
 ;; directory.
 (mapc 'load-library (list "haskell-config"
