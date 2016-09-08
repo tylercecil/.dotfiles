@@ -33,6 +33,7 @@ antigen bundles <<EOF
         # Development plugins
         $PLUGS/emacs
         $PLUGS/git
+        $PLUGS/google
 
         # OS Related Plugins
         $PLUGS/update
