@@ -8,12 +8,9 @@ URxvt.font: xft:Anonymous Pro:size=14
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 URxvt.secondaryWheel: 1
-URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select
-Rxvt.url-select.launcher:  chromium
-Rxvt.url-select.underline: true
-!Rxvt.keysym.M-u:           perl:url-select:select_next
-!Rxvt.keysym.M-Escape:      perl:keyboard-select:activate
-!Rxvt.keysym.M-s:           perl:keyboard-select:searchxt-common:      default,clipboard,url-select,keyboard-select
+URxvt.perl-ext:      default,matcher
+URxvt.matcher.button:   1
+URxvt.urlLauncher:   sensible-browser
 
 !! Solarized color scheme for the X Window System
 ! http://ethanschoonover.com/solarized
