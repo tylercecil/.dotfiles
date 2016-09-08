@@ -9,8 +9,8 @@ PLUGS=$HOME/.dotfiles/zshplugins   # plugin directory
 if [[ -n ${INSIDE_EMACS} ]]; then
     antigen theme imajes
 else
-    antigen theme jonathan
-    # Considering bira and gnzsh. May roll my own.
+    antigen theme $PLUGS theme
+    # Considering bira and gnzsh and jonathan. May roll my own.
 fi
 
 # Antigen Bundles
