@@ -109,6 +109,10 @@
     (add-hook 'company-completion-finished-hook 'company-maybe-turn-on-fci)
     (add-hook 'company-completion-cancelled-hook 'company-maybe-turn-on-fci))
 
+  (use-package flycheck
+    :ensure t
+    :init (global-flycheck-mode))
+
   ;;
   ;; Hastbin. If I haste a selection, it posts it to hastebin, and gives me a link.
   ;;
