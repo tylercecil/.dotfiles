@@ -1,5 +1,5 @@
 # emacs
-EMACS_DEFAULT="emacsclient"
+EMACS_DEFAULT="emacsclient.google-emacs"
 export ALTERNATE_EDITOR=''
 export EDITOR="$EMACS_DEFAULT -nw"
 
