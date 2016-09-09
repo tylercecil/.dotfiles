@@ -1,7 +1,7 @@
 # emacs
-alias e="emacs"
-alias enw="emacs -nw"
-alias ec="emacsclient"
-alias ecn="emacsclient -n"
-alias ecnc="emacsclient -nc"
-alias ecnw="emacsclient -nw"
+EMACS_DEFAULT="emacsclient"
+export ALTERNATE_EDITOR=''
+
+alias e="$EMACS_DEFAULT"
+alias en="$EMACS_DEFAULT -c"
+alias enw="$EMACS_DEFAULT -nw"

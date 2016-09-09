@@ -97,21 +97,18 @@
   ;; (load-theme 'whiteboard t)
 
   ;; Theme in X
-  (when (display-graphic-p)
-    (use-package exec-path-from-shell
-      :ensure t
-      :config (exec-path-from-shell-initialize))
-    ;; Transparency
-    ;; (add-to-list 'default-frame-alist '(alpha 90 90))
-    ;; No Scrollbar
-    (scroll-bar-mode -1)
-    ;; No Toolbar
-    (tool-bar-mode -1)
-    ;; No menu bar
-    (menu-bar-mode -99)
-    ;; Font
-    (set-frame-font "Anonymous Pro 14")
-    ;; (set-frame-font "Anonymous Pro 23")
-    ))
+  (use-package exec-path-from-shell
+    :ensure t
+    :config (exec-path-from-shell-initialize))
+  ;; Transparency
+  ;; (add-to-list 'default-frame-alist '(alpha 90 90))
+  ;; No Scrollbar
+  (scroll-bar-mode -1)
+  ;; No Toolbar
+  (tool-bar-mode -1)
+  ;; No menu bar
+  (menu-bar-mode -99)
+  ;; Font
+  (add-to-list 'default-frame-alist '(font . "Anonymous Pro 14")))
 
 (provide 'themeconfig)
