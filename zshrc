@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-source ~/.dotfiles/zgen/zgen.zsh
+source ~/.zgen/zgen.zsh
 
 if ! zgen saved; then
     PLUGS=$HOME/.dotfiles/zshplugins   # plugin directory
