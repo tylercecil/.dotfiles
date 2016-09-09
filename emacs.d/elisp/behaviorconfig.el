@@ -154,6 +154,11 @@
     :ensure t
     :config
     (evil-leader/set-key "<SPC>" 'evil-ace-jump-word-mode)
-    (evil-leader/set-key "S-<SPC>" 'evil-ace-jump-char-mode)))
+    (evil-leader/set-key "S-<SPC>" 'evil-ace-jump-char-mode))
+
+  (evil-leader/set-key
+    "bb" 'compile
+    "bn" 'next-error
+    "bp" (lambda () (interactive) (next-error -1))))
 
 (provide 'behaviorconfig)
