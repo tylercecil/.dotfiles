@@ -1,14 +1,15 @@
 [user]
-	email = lorr.cecil@gmail.com
-	name = Izzy Cecil
+email = tyler.i.cecil@gmail.com
+name = Tyler Cecil
+
 [core]
-	excludesfile = /home/izzy/.gitignore_global
-    editor = emacs -nw
+excludesfile = /home/izzy/.gitignore_global
 
 [push]
-    default = simple
+default = simple
 
 [mergetool]
-    tool = emerge
+tool = emerge
+
 [url "git://github.com/ghc/packages-"]
-	insteadOf = git://github.com/ghc/packages/
+insteadOf = git://github.com/ghc/packages/
