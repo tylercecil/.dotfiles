@@ -1,22 +1,15 @@
 #!/usr/bin/env zsh
 
-# Setup Antigen
-source ~/.antigen/antigen.zsh
-antigen use oh-my-zsh
-PLUGS=$HOME/.dotfiles/zshplugins   # plugin directory
+source ~/.dotfiles/zgen/zgen.zsh
 
-# Antigen Theme
-if [[ -n ${INSIDE_EMACS} ]]; then
-    antigen theme imajes
-else
-    antigen theme $PLUGS theme
-    # Considering bira and gnzsh and jonathan. May roll my own.
-fi
+if ! zgen saved; then
+    PLUGS=$HOME/.dotfiles/zshplugins   # plugin directory
+    OPLUG="$ZGEN_OH_MY_ZSH_REPO "
 
-# Antigen Bundles
-antigen bundles <<EOF
+    zgen oh-my-zsh
+    zgen loadall <<EOF
         # Some general plugins
-        web-search
+        $ZGEN_OH_MY_ZSH_REPO plugins/web-search
         zsh-users/zsh-syntax-highlighting
         $PLUGS/colorcat
         $PLUGS/defaults
@@ -24,7 +17,7 @@ antigen bundles <<EOF
         $PLUGS/z
 
         # Language specific plugins
-        stack
+        $ZGEN_OH_MY_ZSH_REPO plugins/stack
         $PLUGS/go
         $PLUGS/ocaml
         $PLUGS/python
@@ -37,10 +30,11 @@ antigen bundles <<EOF
         # OS Related Plugins
         $PLUGS/update
         $PLUGS/yaourt
+        $PLUGS/theme
 EOF
+
+    zgen save
+fi
 
 # Set the path
 export PATH=~/.local/bin:~/.bin:/usr/local/bin:$PATH:/usr/local/sbin:/usr/bin/core_perl
-
-# Apply Antigen
-antigen apply
