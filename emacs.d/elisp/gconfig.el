@@ -27,8 +27,6 @@
       "gt" 'toggle-g3-coverage
       "ga" 'autogen
       "gb" 'google3-build
-      "gll" 'google-lint
-      "gln" 'next-error
-      "glp" (lambda () (interactive) (next-error -1)))))
+      "gl" 'google-lint)))
 
 (provide 'gconfig)
