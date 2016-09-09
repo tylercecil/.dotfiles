@@ -2,7 +2,7 @@
 WORKON_HOME=$HOME/.virtualenvs
 
 # Oh-my-zsh python plugins
-zgen oh-my-zsh virtualenvwrapper
+zgen oh-my-zsh plugins/virtualenvwrapper
 
 # Some aliases I like
 alias p="python"

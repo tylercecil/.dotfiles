@@ -1,5 +1,5 @@
 # Oh-my-zsh git plugin
-zgen oh-my-zsh git
+zgen oh-my-zsh plugins/git
 
 # Git-ignore generator
 function gi(){
