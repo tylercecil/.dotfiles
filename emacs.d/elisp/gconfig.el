@@ -26,7 +26,8 @@
     (evil-leader/set-key
       "gt" 'toggle-g3-coverage
       "ga" 'autogen
-      "gb" 'google3-build
-      "gl" 'google-lint)))
+      "gl" 'google-lint
+      "gbb" 'google3-build
+      "gbc" 'google3-build-cleaner)))
 
 (provide 'gconfig)
