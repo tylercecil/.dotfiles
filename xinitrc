@@ -4,8 +4,10 @@
 # Call xmodmap to configure keyboard
 xmodmap .Xmodmaprc
 
-# Set the typematic delay and rate
+# Keyboard setup. Repeat rate, nocapslock, swap alt w/ win (used to osx)
+# and activate the compose key (so I can actually type in other languages).
 xset r rate 300 30    #A 250ms delay, and 30Hz repeat
+setxkbmap -option  altwin:swap_alt_win,compose:ralt,caps:ctrl_modifier
 
 # Set mouse pointer
 xsetroot -cursor_name left_ptr
