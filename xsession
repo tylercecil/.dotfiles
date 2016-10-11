@@ -25,4 +25,4 @@ xsetroot -solid "#333333"
 # Start urxvtd
 urxvtd -q -f -o
 
-exec i3
+~/.xinitrc

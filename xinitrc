@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Load .Xresources to style emacs / urxvt / ect...
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
