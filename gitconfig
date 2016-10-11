@@ -13,3 +13,7 @@ tool = emerge
 
 [url "git://github.com/ghc/packages-"]
 insteadOf = git://github.com/ghc/packages/
+[http]
+	cookiefile = /usr/local/google/home/tcecil/.gitcookies
+[color]
+	ui = auto
