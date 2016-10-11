@@ -1,9 +1,6 @@
 # Load .Xresources to style emacs / urxvt / ect...
 [[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
 
-# Call xmodmap to configure keyboard
-xmodmap .Xmodmaprc
-
 # Keyboard setup. Repeat rate, nocapslock, swap alt w/ win (used to osx)
 # and activate the compose key (so I can actually type in other languages).
 xset r rate 300 30    #A 250ms delay, and 30Hz repeat
