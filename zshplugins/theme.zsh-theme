@@ -36,7 +36,7 @@ setopt prompt_subst
     ZSH_THEME_GIT_PROMPT_DIRTY="%B%F{red}!%f%b%B%F{magenta}"
     ZSH_THEME_GIT_PROMPT_CLEAN=""
 
-    local user_host='${PR_USER}%F{yellow}@${PR_HOST}'
+    local user_host="${PR_USER}%F{yellow}@${PR_HOST}"
     local current_dir='%B%F{blue}$(shrink_path -t -l)%f%b'
     local git_branch='$(git_prompt_info)'
 
