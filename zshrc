@@ -10,6 +10,7 @@ if ! zgen saved; then
     zgen loadall <<EOF
         # Some general plugins
         $ZGEN_OH_MY_ZSH_REPO plugins/web-search
+        $ZGEN_OH_MY_ZSH_REPO plugins/shrink-path
         zsh-users/zsh-syntax-highlighting
         zsh-users/zsh-completions
         $PLUGS/colorcat
