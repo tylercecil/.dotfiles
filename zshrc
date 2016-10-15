@@ -28,7 +28,7 @@ if ! zgen saved; then
         # Development plugins
         $PLUGS/emacs
         $PLUGS/git
-        $PLUGS/google
+        # $PLUGS/google
 
         # OS Related Plugins
         $PLUGS/update
