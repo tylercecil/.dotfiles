@@ -14,14 +14,15 @@ export STAG_IMAGE_PROJECT=bct-staging-images
 export DEV_PROJECT=bigclustertestdev0-devconsole
 
 # Just a default zone in staging. Arbitrary.
-export ZONE=us-central1-ir1
+export STAG_ZONE=us-central1-ir1
+export PROD_ZONE=us-east1-a
 
 # Small gcloud aliases
 alias gcloud='/google/data/ro/teams/cloud-sdk/gcloud'
 alias gcon-dev="gcloud config configurations activate dev"
 alias gcon-staging="gcloud config configurations activate staging"
 alias gcon-prod="gcloud config configurations activate prod"
-alias gccomp="gcloud compute"
+alias gcomp="gcloud compute"
 
 # Don't actually run this function, I just put this here for my own personal
 # documentation, so I can refer people to how I configured gcloud.
@@ -49,10 +50,12 @@ function _init_gcloud_configs {
   gcloud config set project $STAG_PROJECT
   gcloud config set api_endpoint_overrides/compute \
          https://www.googleapis.com/compute/staging_v1/
+  gcloud config set compute/zone $STAG_ZONE
 
   gcloud config configurations create --activate prod
   gcloud config set account tcecil@google.com
   gcloud config set project $PROD_PROJECT
+  gcloud config set compute/zone $PROD_ZONE
 
   yes | gcloud config configurations delete aaa-tmp-config
 }
@@ -63,16 +66,18 @@ function blaze_stage_test {
 }
 
 # I always build the same kind of VM
-alias findvm='gcloud compute instances list | ag tcecil'
-alias rmvm='gcloud compute instances --zone=$ZONE delete '
-alias rmvmall='rmvm `findvm | cut -d " " -f 1` '
+alias lsvm='gcloud compute instances list | ag tcecil'
+alias rmvm='gcloud compute instances delete '
+alias rmvmall='rmvm `lsvm | cut -d " " -f 1` '
 alias sshvm='export TERM=xterm; gcloud compute ssh '
+alias gcon-cur='gcloud config configurations list | ag "True" | cut -d " " -f 1'
 
 function getserial {
-  gcloud compute instances get-serial-port-output $1 --port=2 --zone=$ZONE
+  gcloud compute instances get-serial-port-output $1 --port=2
 }
 
 function mkvm {
+  local service=''
   local cfg=~/src/my-cloud-config.yaml
   if [[ $1 == '-c' ]]; then
     cfg=$2
@@ -83,21 +88,32 @@ function mkvm {
     cfg=""
     shift
   fi
-  local image=$(gcloud compute images list --project $STAG_IMAGE_PROJECT  \
-    --no-standard-images | ag gci | tail -n 1 | cut -d ' ' -f 1)
+  # Get the image string. For staging this is odd
+  local imageflags=''
+  if [[ `gcon-cur` == 'prod' ]]; then
+    imageflags=("--image-family=gci-stable" "--image-project=google-containers")
+    # service='--scopes=529441494482-compute@developer.gserviceaccount.com=https://www.googleapis.com/auth/cloud-platform'
+    service='--scopes=default=cloud-platform,storage-full,logging-write'
+  elif [[ `gcon-cur` == 'staging' ]]; then
+    local image=$(gcloud compute images list --project $STAG_IMAGE_PROJECT  \
+      --no-standard-images | ag gci | tail -n 1 | cut -d ' ' -f 1)
+    imageflags=("--image-project=$STAG_IMAGE_PROJECT" "--image=$image")
+    service='--scopes=default=cloud-platform,storage-full,logging-write'
+  fi
 
   echo "Building $# VMs with the following configuration: $cfg"
-  echo "Using image $image"
-
-  for vm in $*; do
-    gcloud compute instances create $vm \
-           --image-project $STAG_IMAGE_PROJECT --image $image $cfg
-  done
+  echo "Using imageflags: $imageflags"
+  set -x
+  gcloud compute instances create $@ ${imageflags[@]} $cfg $service
+  set +x
 }
 
 function bbmcpush {
   local tag=${1:-default}
-  blaze build --define BBMC_TESTING_TAG=$tag                      \
+  blaze run --define BBMC_TESTING_TAG=$tag                      \
         --define BBMC_TESTING_REPOSITORY=tcecil-bbmc-image/prober \
         //net/fabric/monitoring/bbmc/testing:bbmc_testing_push
 }
+
+# Need to use rt config api, so... that's long to type :p
+alias grt='gcloud alpha deployment-manager runtime-configs'
