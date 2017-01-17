@@ -9,6 +9,11 @@
 
 (defun behaviorconfig-init ()
   ;;
+  ;; Don't tell me this is a server, I don't care
+  ;;
+  (diminish 'server-buffer-clients)
+
+  ;;
   ;; Always use an existing window
   ;;
   (setq ns-pop-up-frames nil)
@@ -88,6 +93,7 @@
 
   (use-package company
     :ensure t
+    :diminish company-mode
     :config
     (global-company-mode)
     (use-package company-quickhelp
@@ -111,6 +117,7 @@
 
   (use-package flycheck
     :ensure t
+    :diminish flycheck-mode
     :init (global-flycheck-mode))
 
   ;;
