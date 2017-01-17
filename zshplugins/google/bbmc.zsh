@@ -9,13 +9,20 @@
 # See https://g3doc.corp.google.com/cloud/cluster/tools/dev/g3doc/index.md?cl=head
 # for more information
 export PROD_PROJECT=google.com:bbmc-testing-prod
-export STAG_PROJECT=bct-staging-functional
+export STAG_PROJECT=bct-staging-bbmc
+# export STAG_PROJECT=bct-staging-functional
 export STAG_IMAGE_PROJECT=bct-staging-images
 export DEV_PROJECT=bigclustertestdev0-devconsole
 
 # Just a default zone in staging. Arbitrary.
 export STAG_ZONE=us-central1-ir1
 export PROD_ZONE=us-east1-a
+
+# For MultiNIC tests I need a second subnet for my VMs. Let's provide some tools
+# to handle that for me.
+export AUXNET_NAME=tcecil-aux-network
+export SUBNET_NAME=tcecil-s
+export IP_RANGE=192.168.1.0/24
 
 # Small gcloud aliases
 alias gcloud='/google/data/ro/teams/cloud-sdk/gcloud'
@@ -77,8 +84,13 @@ function getserial {
 }
 
 function mkvm {
+  local is_multinic=''
+  if [[ $1 = '-m' ]]; then
+    is_multinic=true
+    shift
+  fi
   local service=''
-  local cfg=~/src/my-cloud-config.yaml
+  local cfg=~/src/bbmc-template/cloud-config.yaml
   if [[ $1 == '-c' ]]; then
     cfg=$2
     shift 2
@@ -103,17 +115,48 @@ function mkvm {
 
   echo "Building $# VMs with the following configuration: $cfg"
   echo "Using imageflags: $imageflags"
+  echo "Multinic mode = $is_multinic"
+
   set -x
-  gcloud compute instances create $@ ${imageflags[@]} $cfg $service
+  if $is_multinic ; then
+     gcloud alpha compute instances create $@ ${imageflags[@]} $cfg $service \
+       --zone=$PROD_ZONE \
+       --network-interface subnet=default --network-interface subnet=$SUBNET_NAME
+  else
+    gcloud compute instances create $@ ${imageflags[@]} $cfg $service
+  fi
   set +x
 }
 
 function bbmcpush {
-  local tag=${1:-default}
-  blaze run --define BBMC_TESTING_TAG=$tag                      \
-        --define BBMC_TESTING_REPOSITORY=tcecil-bbmc-image/prober \
+  local tag=${1:-tcecil-default}
+  blaze run --define BBMC_TESTING_TAG=$tag                        \
         //net/fabric/monitoring/bbmc/testing:bbmc_testing_push
+        # --define BBMC_TESTING_REPOSITORY=tcecil-bbmc-image/prober \
+        # --define BBMC_TESTING_REGISTRY=b.gcr.io                   \
 }
 
 # Need to use rt config api, so... that's long to type :p
 alias grt='gcloud alpha deployment-manager runtime-configs'
+alias lssnet='gcloud compute networks subnets list'
+alias lsnet='gcloud compute networks list'
+
+function net_ready {
+  lssnet | ag $SUBNET_NAME
+  return $?
+}
+
+function mknet {
+  local region=`echo $PROD_ZONE | rev | cut -d '-' -f 2- | rev`
+  gcloud compute networks create $AUXNET_NAME --mode custom
+  gcloud compute networks subnets create $SUBNET_NAME \
+    --network $AUXNET_NAME \
+    --region $region \
+    --range $IP_RANGE
+}
+
+function rmnet {
+  local region=`echo $PROD_ZONE | rev | cut -d '-' -f 2- | rev`
+  gcloud compute networks subnets delete $SUBNET_NAME --region $region
+  gcloud compute networks delete $AUXNET_NAME
+}
