@@ -1,0 +1,9 @@
+[export]
+copy-detection = True
+
+[alias]
+presubmit = export -p all --tap-options=detach,email --ignore-presubmit-warnings
+
+# Never delete master
+[cleanup]
+keep-branches = master
