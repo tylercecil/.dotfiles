@@ -25,14 +25,13 @@ if ! zgen saved; then
         $PLUGS/python
         $PLUGS/tex
 
+        # OS Related Plugins
+        $PLUGS/update
+        $PLUGS/theme
+
         # Development plugins
         $PLUGS/emacs
         $PLUGS/git
-
-        # OS Related Plugins
-        $PLUGS/update
-        $PLUGS/yaourt
-        $PLUGS/theme
 EOF
 
     zgen save
