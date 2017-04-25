@@ -31,7 +31,7 @@ font pango:Anonymous Pro 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec ~/.bin/smart_open_shell.sh
 
 # kill focused window
 bindsym $mod+q kill
