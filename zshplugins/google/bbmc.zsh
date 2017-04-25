@@ -13,6 +13,8 @@ export STAG_PROJECT=bct-staging-bbmc
 # export STAG_PROJECT=bct-staging-functional
 export STAG_IMAGE_PROJECT=bct-staging-images
 export DEV_PROJECT=bigclustertestdev0-devconsole
+export MULTINIC_PROJECT=google.com:cloudnet-multinic-playground
+
 
 # Just a default zone in staging. Arbitrary.
 export STAG_ZONE=us-central1-ir1
@@ -84,7 +86,7 @@ function getserial {
 }
 
 function mkvm {
-  local is_multinic=''
+  local is_multinic='false'
   if [[ $1 = '-m' ]]; then
     is_multinic=true
     shift
@@ -118,7 +120,7 @@ function mkvm {
   echo "Multinic mode = $is_multinic"
 
   set -x
-  if $is_multinic ; then
+  if [[ $is_multinic = true ]]; then
      gcloud alpha compute instances create $@ ${imageflags[@]} $cfg $service \
        --zone=$PROD_ZONE \
        --network-interface subnet=default --network-interface subnet=$SUBNET_NAME
@@ -131,8 +133,8 @@ function mkvm {
 function bbmcpush {
   local tag=${1:-tcecil-default}
   blaze run --define BBMC_TESTING_TAG=$tag                        \
+        --define BBMC_TESTING_REPOSITORY=google.com/bbmc-images/testing-image\
         //net/fabric/monitoring/bbmc/testing:bbmc_testing_push
-        # --define BBMC_TESTING_REPOSITORY=tcecil-bbmc-image/prober \
         # --define BBMC_TESTING_REGISTRY=b.gcr.io                   \
 }
 
