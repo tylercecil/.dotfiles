@@ -11,6 +11,9 @@ default = simple
 [merge]
 tool = emerge
 
+[mergetool]
+keepBackup = false
+
 [url "git://github.com/ghc/packages-"]
 insteadOf = git://github.com/ghc/packages/
 [http]
