@@ -25,3 +25,6 @@ insteadOf = git://github.com/ghc/packages/
 	ll = log --stat
 	lg = log
 	lp = log -p
+
+[cleanup]
+keep-branches = master
