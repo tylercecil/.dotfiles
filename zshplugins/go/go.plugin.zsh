@@ -1,3 +1,3 @@
 # Go Lang config
-export GOPATH=$HOME
+export GOPATH=$HOME/src/go
 export PATH=$PATH:$GOPATH/bin
