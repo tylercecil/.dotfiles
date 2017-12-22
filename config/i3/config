@@ -191,18 +191,15 @@ focus_follows_mouse no
 ################################################################################
 # Start Processes
 ################################################################################
-# Start composer to fix tearing and in general accellerate things
-# exec  ~/.bin/comptonconfig
+exec unclutter
 
-# Give me a background
-# exec feh --bg-fill ~/Pictures/wallpaper
+exec --no-startup-id cinnamon-screensaver
+exec /usr/bin/cinnamon-settings-daemon
 
-# Please don't talk while I'm talking
-# exec syndaemon -i 1 -t -k -d
-# exec unclutter
+exec start-pulseaudio-x11
+exec volumeicon
 
-# I would like the following items in my tray.
-# exec redshift-gtk
-
-# Google related activities
-exec /usr/bin/cinnamon-settings-daemon & (sleep 2; nm-applet) &  (sleep 2; /usr/share/goobuntu-indicator/goobuntu_indicator.py) & (sleep 2; /usr/bin/goobuntu-welcome) & gsettings-data-convert & (sleep 3; /usr/share/gsysnews/gsysnews-launcher.sh) & start-pulseaudio-x11 & (sleep 3; cinnamon-sound-applet)
+exec /usr/share/goobuntu-indicator/goobuntu_indicator.py
+exec /usr/bin/goobuntu-welcome
+exec gsettings-data-convert
+exec /usr/share/gsysnews/gsysnews-launcher.sh
