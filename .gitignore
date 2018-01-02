@@ -12,6 +12,7 @@ bin/cdc
 bin/g
 bin/git-br
 bin/git-cleanup
+bin/git-co
 bin/git-d5
 bin/git-diff5
 bin/git-difftool5
