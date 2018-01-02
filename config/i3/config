@@ -195,9 +195,10 @@ exec unclutter
 
 exec --no-startup-id cinnamon-screensaver
 exec /usr/bin/cinnamon-settings-daemon
-
 exec start-pulseaudio-x11
 exec volumeicon
+
+exec ibus-daemon
 
 exec /usr/share/goobuntu-indicator/goobuntu_indicator.py
 exec /usr/bin/goobuntu-welcome
