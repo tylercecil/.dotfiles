@@ -6,9 +6,6 @@
 # Disable audible bell
 xset -b
 
-# Init keys
-~/.bin/initkeyboard.sh
-
 # Background color
 xsetroot -solid "#333333"
 
