@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Opens a new $TERM (urxvt) preserving
 #  1) The directory of the current selected window
 #  2) The ssh connection of the current selected window
