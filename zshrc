@@ -22,7 +22,7 @@ if ! zgen saved; then
         $ZGEN_OH_MY_ZSH_REPO plugins/stack
         $PLUGS/go
         $PLUGS/ocaml
-        $PLUGS/python
+        # $PLUGS/python
         $PLUGS/tex
 
         # OS Related Plugins
@@ -30,10 +30,9 @@ if ! zgen saved; then
         $PLUGS/theme
 
         # Development plugins
-        $PLUGS/emacs
+        $PLUGS/editor
         $PLUGS/git
 EOF
-
     zgen save
 fi
 
