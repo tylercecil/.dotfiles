@@ -1,4 +1,0 @@
-#!/bin/sh
-exec compton -b --backend glx --vsync opengl-swc \
-          --glx-no-stencil --glx-no-rebind-pixmap \
-          --glx-swap-method 3 --unredir-if-possible
