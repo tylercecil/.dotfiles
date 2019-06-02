@@ -1,31 +1,31 @@
-call plug#begin()
-Plug 'tpope/vim-surround'
-Plug 'altercation/vim-colors-solarized'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-fugitive'
-Plug 'junegunn/fzf'
-call plug#end()
+" call plug#begin()
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-fugitive'
+" call plug#end()
+
+" Encoding
+scriptencoding utf-8
+set encoding=utf-8
+set fileencoding=utf-8
 
 " Line Numbers
-set relativenumber
 set rnu
+set nu
 
 set wrap!
 set colorcolumn=80
 
-set tabstop=2 shiftwidth=2 expandtab
-
 syntax on
-set background=dark
-colorscheme solarized
-let g:airline_theme='solarized'
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
 
+set t_Co=256
+
+set tabstop=2 shiftwidth=2 expandtab
+
 set mouse=a
 set clipboard=unnamed
+
 imap kj <Esc>
 imap jk <Esc>
-
 let mapleader=" "
