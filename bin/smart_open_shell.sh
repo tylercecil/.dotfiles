@@ -5,20 +5,21 @@
 # Otherwise opens up a fresh instance of urxvt.
 set -x
 
-TERM=urxvt
+TERM_NAME=urxvt
+TERM_CMD=urxvtc
 
 # Open a term at a directory
 function cdterm {
   DIR=${1}
   shift 1
-  ${TERM} ${@} -cd "${DIR}"
+  ${TERM_CMD} ${@} -cd "${DIR}"
 }
 
 # Open a term with an SSH connection
 function sshterm {
   SSH_CMD=${1}
   shift 1
-  ${TERM} ${@} -e /bin/sh -c "exec ${SSH_CMD}"
+  ${TERM_CMD} ${@} -e /bin/sh -c "exec ${SSH_CMD}"
 }
 
 # Get focused window PID.
@@ -26,9 +27,9 @@ function sshterm {
 X_PID=$(xdotool getwindowfocus getwindowpid)
 
 # Check if focused window isn't term. If not, launch term normally.
-X_CMD=$(cat "/proc/${X_PID}/cmdline" | cut -d '' -f 1)
-if ! [[ "${X_PID}" ]] || [[ "${X_CMD}" != $TERM ]]; then
-  $TERM
+X_CMD=$(basename $(cat "/proc/${X_PID}/cmdline" | cut -d '' -f 1))
+if ! [[ "${X_PID}" ]] || [[ "${X_CMD}" != $TERM_NAME ]]; then
+  $TERM_CMD
   exit
 fi
 
