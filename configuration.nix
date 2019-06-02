@@ -67,10 +67,18 @@
   # programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
 
   # List services that you want to enable:
+  systemd.user.services."urxvtd" = {
+    enable = true;
+    description = "rxvt unicode daemon";
+    wantedBy = [ "default.target" ];
+    path = [ pkgs.rxvt_unicode-with-plugins ];
+    serviceConfig.Restart = "on-failure";
+    serviceConfig.RestartSet = 2;
+    serviceConfig.ExecStart = "${pkgs.rxvt_unicode-with-plugins}/bin/urxvtd -o";
+  };
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
-  # services.emacs.package = import /home/tyler/.emacs.d { pkgs = pkgs; };
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
