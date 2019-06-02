@@ -44,21 +44,22 @@
   environment.systemPackages = with pkgs; [
     anki
     chromium
+    clang
     dmenu
     emacs
     fzf
+    gcc
     git
     htop
-    rxvt_unicode-with-plugins
-    silver-searcher
     neovim
-    xdotool
-    zsh
     python3
     python37Packages.virtualenv
     python37Packages.virtualenvwrapper
-    clang
-    gcc
+    rxvt_unicode-with-plugins
+    silver-searcher
+    texlive.combined.scheme-basic
+    xdotool
+    zsh
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
