@@ -70,10 +70,10 @@
   # List services that you want to enable:
   systemd.user.services."urxvtd" = {
     enable = true;
-    description = "rxvt unicode daemon";
+    description = "rxvt Unicode daemon";
     wantedBy = [ "default.target" ];
     path = [ pkgs.rxvt_unicode-with-plugins ];
-    serviceConfig.Restart = "on-failure";
+    serviceConfig.Restart = "always";
     serviceConfig.RestartSet = 2;
     serviceConfig.ExecStart = "${pkgs.rxvt_unicode-with-plugins}/bin/urxvtd -o";
   };
