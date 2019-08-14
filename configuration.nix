@@ -27,7 +27,8 @@
   };
 
   # Set your time zone.
-  time.timeZone = "America/Chicago";
+  # time.timeZone = "America/Chicago";
+  time.timeZone = null;
 
   fonts.fonts = with pkgs; [
     anonymousPro
