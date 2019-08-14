@@ -52,14 +52,16 @@
     gcc
     git
     htop
+    mpg123
     neovim
     python3
     python37Packages.virtualenv
     python37Packages.virtualenvwrapper
     rxvt_unicode-with-plugins
     silver-searcher
-    texlive.combined.scheme-basic
+    texlive.combined.scheme-full
     xdotool
+    zathura
     zsh
   ];
 
