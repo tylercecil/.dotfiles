@@ -5,8 +5,9 @@
 # Otherwise opens up a fresh instance of urxvt.
 set -x
 
+# TODO: Using urxvtc presents a problem --- the pid is always of the deamon.
 TERM_NAME=urxvt
-TERM_CMD=urxvtc
+TERM_CMD=urxvt
 
 # Open a term at a directory
 function cdterm {
@@ -23,7 +24,6 @@ function sshterm {
 }
 
 # Get focused window PID.
-# X_PID=$(xprop _NET_WM_PID | cut -d' ' -f3) # This is good for testing
 X_PID=$(xdotool getwindowfocus getwindowpid)
 
 # Check if focused window isn't term. If not, launch term normally.
@@ -33,10 +33,8 @@ if ! [[ "${X_PID}" ]] || [[ "${X_CMD}" != $TERM_NAME ]]; then
   exit
 fi
 
-# Get shell or ssh information. If SSH info found, launch sshterm. If shell,
-# launch cdterm.
-SSH_PID=$(pstree ${X_PID} -p | grep -e 'ssh([0-9]*)' -o | sed 's/[^0-9]//g')
-# SHELL_PID=$(pgrep -P ${X_PID} $(echo ${SHELL} | grep -e '[^/]*$' -o))
+# Get shell or ssh information. 
+SSH_PID=$(pstree -p ${X_PID} | grep -e 'ssh([0-9]*)' -o | sed 's/[^0-9]//g')
 SHELL_PID=$(pgrep -P ${X_PID} $(basename ${SHELL}))
 if [[ ${SSH_PID} ]]; then
   SSH_CMD=$(cat "/proc/${SSH_PID}/cmdline" | tr "\0" " ")
