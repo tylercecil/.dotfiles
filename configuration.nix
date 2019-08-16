@@ -46,14 +46,18 @@
     anki
     chromium
     clang
+    coq
     dmenu
     emacs
     fzf
     gcc
     git
+    go
     htop
     mpg123
     neovim
+    neovim-remote
+    pstree
     python3
     python37Packages.virtualenv
     python37Packages.virtualenvwrapper
