@@ -4,28 +4,32 @@
 # Should you change your keyboard layout some time, delete
 # this file and re-run i3-config-wizard(1).
 #
-
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
+set $sysFont font pango:Anonymous Pro 12
+set $base03    #002b36
+set $base02    #073642
+set $base01    #586e75
+set $base00    #657b83
+set $base0     #839496
+set $base1     #93a1a1
+set $base2     #eee8d5
+set $base3     #fdf6e3
+set $yellow    #b58900
+set $orange    #cb4b16
+set $red       #dc322f
+set $magenta   #d33682
+set $violet    #6c71c4
+set $blue      #268bd2
+set $cyan      #2aa198
+set $green     #859900
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-# font pango:monospace 8
-
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
-# font pango:DejaVu Sans Mono 8
-font pango:Noto Mono 10
-
-# Before i3 v4.8, we used to recommend this one as the default
-# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-# The font above is very space-efficient, that is, it looks good, sharp and
-# clear in small sizes. However, its unicode glyph coverage is limited, the old
-# X core fonts rendering does not support right-to-left and this being a bitmap
-# font, it doesn’t scale on retina/hidpi displays.
+$sysFont
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -38,14 +42,7 @@ bindsym $mod+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+d exec dmenu_run
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
 
-###############################################
-# I will be changing these to be more Vim-Like
-###############################################
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -161,27 +158,43 @@ bindsym XF86AudioPrev exec playerctl previous
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5% && killall -SIGUSR1 i3status
-bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -- -5% && killall -SIGUSR1 i3status
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5% && killall -SIGUSR1 i3status
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && killall -SIGUSR1 i3st
 
 # Microphone mute
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && killall -SIGUSR1 i3status
 
 # Screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id /usr/bin/xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec --no-startup-id /usr/bin/xbacklight -inc 10
+# TODO: xbacklight doesn't find my monitor. 
+# https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 
 # Lock screen
-bindsym Mod1+Mod4+l exec "cinnamon-screensaver-command --lock"
+bindsym $mod+Escape exec "i3lock --color=002b36"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-	position top
+  position top
         status_command i3status --config ~/.config/i3/i3status.conf
-        # tray_output primary
-	font pango:DejaVu Sans Mono 8
+  $sysFont
+  colors {
+    separator $green
+    background $base03
+    statusline $blue
+    focused_workspace $base3 $green $base3
+    active_workspace $base3 $violet $base3
+    inactive_workspace $base01 $base1 $base03
+    urgent_workspace $magenta $magenta $base3
+  }
 }
+
+client.focused $green $green $base3 $green
+client.focused_inactive $base02 $base02 $base2 $violet
+client.unfocused $base02 $base02 $base1 $base01
+client.urgent $magenta $magenta $base3 $red
+new_window pixel
 
 ################################################################################
 # Behaviors other than keystrokes
@@ -194,3 +207,4 @@ focus_follows_mouse no
 # exec unclutter
 # exec volumeicon
 exec ibus-daemon
+exec xsetroot -solid "$base03"
