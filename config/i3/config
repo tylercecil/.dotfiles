@@ -8,6 +8,9 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+for_window [class="URxvt" instance="URxvtUtil"] floating enable
+for_window [class="URxvt" instance="URxvtUtil"] move absolute position center
+
 set $mod Mod4
 set $sysFont font pango:Anonymous Pro 12
 set $base03    #002b36
@@ -41,7 +44,7 @@ bindsym $mod+Return exec ~/.bin/smart_open_shell.sh
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec ~/.bin/util_win.sh ~/.bin/fzf_launch.sh
 
 # change focus
 bindsym $mod+h focus left

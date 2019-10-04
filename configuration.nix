@@ -47,7 +47,6 @@
     chromium
     clang
     coq
-    dmenu
     emacs
     fzf
     gcc
