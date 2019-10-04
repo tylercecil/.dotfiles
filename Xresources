@@ -2,7 +2,7 @@
 ! ================================================================ !
 #define font1 Anonymous Pro
 #define font2 DejaVu Sans Mono
-URxvt.font: xft:font1:size=14, xft:font2:size=14
+URxvt.font: xft:font1:size=12, xft:font2:size=12
 
 URxvt*depth: 32
 URxvt*internalBorder: 0
@@ -25,6 +25,7 @@ URxvt.keysym.M-Down:        \033[1;3B
 URxvt.keysym.M-Up:          \033[1;3A
 URxvt.keysym.M-Left:        \033[1;3D
 URxvt.keysym.M-Right:       \033[1;3C
+
 !! Solarized color scheme for the X Window System
 ! http://ethanschoonover.com/solarized
 ! ================================================================ !

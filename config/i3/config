@@ -210,4 +210,4 @@ focus_follows_mouse no
 # exec unclutter
 # exec volumeicon
 exec ibus-daemon
-exec xsetroot -solid "$base03"
+exec xsetroot -solid "$base02"
