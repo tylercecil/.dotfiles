@@ -7,6 +7,7 @@
 " PluClean
 call plug#begin()
 Plug 'tpope/vim-surround'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 " Encoding
