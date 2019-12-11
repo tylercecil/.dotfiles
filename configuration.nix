@@ -45,6 +45,7 @@
   environment.systemPackages = with pkgs; [
     anki
     chromium
+    coreutils
     clang
     coq
     emacs
@@ -52,18 +53,22 @@
     gcc
     git
     go
+    gnumake
     htop
-    mpg123
+    inotify-tools
+    mustache-go
     neovim
     neovim-remote
     pstree
     python3
     python37Packages.virtualenv
     python37Packages.virtualenvwrapper
+    rubber
     rxvt_unicode-with-plugins
     silver-searcher
     texlive.combined.scheme-full
     xdotool
+    xorg.xbacklight
     zathura
     zsh
   ];
