@@ -1,4 +1,6 @@
-*~
+config/nvim/plugged
+
+/*~
 emacs.d/ac-comphist.dat
 emacs.d/elpa
 emacs.d/ido.last
