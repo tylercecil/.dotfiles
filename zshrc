@@ -1,8 +1,5 @@
 #!/usr/bin/env zsh
 
-# Start X if needed
-[[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && exec startx
-
 source ~/.zgen/zgen.zsh
 
 if ! zgen saved; then
