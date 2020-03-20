@@ -44,7 +44,7 @@ bindsym $mod+Return exec ~/.bin/smart_open_shell.sh
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec ~/.bin/util_win.sh ~/.bin/fzf_launch.sh
+bindsym $mod+d exec i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
