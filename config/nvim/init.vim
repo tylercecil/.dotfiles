@@ -8,6 +8,7 @@
 call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 
 " Encoding
@@ -42,3 +43,9 @@ set spell
 
 " Delete trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
+
+" Files
+augroup pandoc_syntax
+  au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+  let g:pandoc#syntax#conceal#use = 0
+augroup END
