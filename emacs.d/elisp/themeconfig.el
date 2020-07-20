@@ -12,15 +12,16 @@
   ;; (or so it claims). In reality it is just something that looks good enough
   ;; to me, and worked first try, so... I'm down with that.
   ;;
-  (use-package spaceline-config
-    :ensure spaceline
-    :config
-    (spaceline-spacemacs-theme)
-    (setq powerline-default-separator         'wave
-          spaceline-workspace-numbers-unicode t
-          spaceline-window-numbers-unicode    t
-          spaceline-highlight-face-func       'spaceline-highlight-face-evil-state))
-  ;
+  ;; (use-package spaceline-config
+  ;;   :ensure spaceline
+  ;;   :config
+  ;;   (spaceline-spacemacs-theme)
+  ;;   (setq powerline-default-separator         'wave
+  ;;         spaceline-workspace-numbers-unicode t
+  ;;         spaceline-window-numbers-unicode    t
+  ;;         spaceline-highlight-face-func       'spaceline-highlight-face-evil-state))
+  ;;
+
   ;; Rainbow Delims
   ;;
   (use-package rainbow-delimiters
@@ -57,11 +58,11 @@
     (setq linum-format 'linum-format-func))
 
   ;; Highlight things I hate
-  (use-package highlight-chars
-    :ensure t
-    :init
-    (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
-    (add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace))
+  ;; (use-package highlight-chars
+  ;;   :ensure t
+  ;;   :init
+  ;;   (add-hook 'font-lock-mode-hook 'hc-highlight-tabs)
+  ;;   (add-hook 'font-lock-mode-hook 'hc-highlight-trailing-whitespace))
 
   (use-package fill-column-indicator
     :ensure t
@@ -93,15 +94,14 @@
 
   (use-package solarized-theme
     :ensure t
-    :config (load-theme 'solarized-light t))
+    :config (load-theme 'solarized-light t)
+    (setq solarized-use-terminal-theme t ))
   ;; (load-theme 'whiteboard t)
 
   ;; Theme in X
   (use-package exec-path-from-shell
     :ensure t
     :config (exec-path-from-shell-initialize))
-  ;; Transparency
-  ;; (add-to-list 'default-frame-alist '(alpha 90 90))
   ;; No Scrollbar
   (scroll-bar-mode -1)
   ;; No Toolbar
@@ -109,6 +109,6 @@
   ;; No menu bar
   (menu-bar-mode -99)
   ;; Font
-  (add-to-list 'default-frame-alist '(font . "Anonymous Pro 14")))
+  (add-to-list 'default-frame-alist '(font . "Anonymous Pro 11")))
 
 (provide 'themeconfig)

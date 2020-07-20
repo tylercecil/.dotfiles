@@ -6,8 +6,8 @@
 ;; Keyboard configuration for emacs. Many mode specific keys end up in their
 ;; respective mode files. This more covers my basic Evil configuration.
 ;;
-;; This is a basic Evil configuration. I'll need to remeber what these
-;; do as I'm learning Vim. Some that I've ommited, but seem like they
+;; This is a basic Evil configuration. I'll need to remember what these
+;; do as I'm learning Vim. Some that I've omitted, but seem like they
 ;; may be cool in the future are
 ;; * evil-args
 ;; * evil-textobj-anyblock (Might be cool to move latex blocks around.)
@@ -53,14 +53,25 @@
       :ensure t
       :config (global-evil-matchit-mode 1))
 
+    (use-package ace-jump-mode
+                 :ensure t
+                 :config
+                 (evil-leader/set-key "<SPC>" 'evil-ace-jump-word-mode)
+                 (evil-leader/set-key "S-<SPC>" 'evil-ace-jump-char-mode))
+
+    (evil-leader/set-key
+      "bb" 'compile
+      "bn" 'next-error
+      "bp" (lambda () (interactive) (next-error -1)))
+
     ;; Now I'll do some gross things that are really just for me.
-  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
     ;; Enter should add a new line in normal state
     (evil-define-key 'normal global-map (kbd "RET") (kbd "i <RET> <escape>"))
     (evil-define-key 'normal global-map (kbd "<S-return>") (kbd "o <escape>"))
 
-    ;; Not sure if I want `evil-indent` or `evil-indent-line`. Line is more emacs like
-    ;; but I think I'll benefit from evil-indent
+    ;; Not sure if I want `evil-indent` or `evil-indent-line`. Line is more
+    ;; emacs like but I think I'll benefit from evil-indent
     (evil-define-key 'normal global-map (kbd "TAB") 'evil-indent)
 
     ;; I like moving to the beginning like I did in emacs
@@ -68,6 +79,7 @@
       :type inclusive
       (when (= (point) (progn (evil-first-non-blank) (point)))
         (evil-beginning-of-line)))
+
     (evil-define-key 'insert global-map (kbd "C-a") 'evil-jumpy-begin)
     (evil-define-key 'visual global-map (kbd "C-a") 'evil-jumpy-begin)
     (evil-define-key 'normal global-map (kbd "C-a") 'evil-jumpy-begin)
