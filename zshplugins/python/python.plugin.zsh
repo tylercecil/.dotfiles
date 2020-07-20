@@ -10,3 +10,6 @@ alias p2="python2"
 alias p3="python3"
 alias bp="bpython"
 alias pc="p -c"
+
+# Jupyter related aliases
+alias nb="jupyter notebook"
