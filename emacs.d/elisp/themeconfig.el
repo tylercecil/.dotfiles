@@ -7,20 +7,16 @@
 ;; looks and feels.
 
 (defun themeconfig-init ()
-  ;;
-  ;; Space-line is simply power-line with the theming provided by spacemacs
-  ;; (or so it claims). In reality it is just something that looks good enough
-  ;; to me, and worked first try, so... I'm down with that.
-  ;;
-  ;; (use-package spaceline-config
-  ;;   :ensure spaceline
-  ;;   :config
-  ;;   (spaceline-spacemacs-theme)
-  ;;   (setq powerline-default-separator         'wave
-  ;;         spaceline-workspace-numbers-unicode t
-  ;;         spaceline-window-numbers-unicode    t
-  ;;         spaceline-highlight-face-func       'spaceline-highlight-face-evil-state))
-  ;;
+
+  (use-package spaceline-config
+    :ensure spaceline
+    :config
+    (spaceline-spacemacs-theme)
+    (setq powerline-default-separator         'wave
+          spaceline-workspace-numbers-unicode t
+          spaceline-window-numbers-unicode    t
+          spaceline-highlight-face-func       'spaceline-highlight-face-evil-state))
+
 
   ;; Rainbow Delims
   ;;
