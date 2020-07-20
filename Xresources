@@ -2,7 +2,7 @@
 ! ================================================================ !
 #define font1 Anonymous Pro
 #define font2 DejaVu Sans Mono
-URxvt.font: xft:font1:size=12, xft:font2:size=12
+URxvt.font: xft:font1:size=11, xft:font2:size=11
 
 URxvt*depth: 32
 URxvt*internalBorder: 0
