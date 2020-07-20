@@ -43,6 +43,14 @@
     :init (global-company-mode)
     :diminish company-mode)
 
+  (use-package ivy :ensure t
+    :diminish ivy-mode
+    :config
+    (ivy-mode 1)
+    ;; add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
+    (setq ivy-use-virtual-buffers t)
+
+    )
 
   ;;
   ;; File Settings
