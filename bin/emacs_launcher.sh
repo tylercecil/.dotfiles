@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/usr/bin/env bash
+
 if [ -z "$DISPLAY" ]; then
     IS_GRAPHICAL=true
 else

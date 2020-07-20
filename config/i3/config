@@ -40,6 +40,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec ~/.bin/smart_open_shell.sh
 
+# make new emacs frame
+bindsym $mod+semicolon exec ~/.bin/emacs_launcher.sh -c
+
 # kill focused window
 bindsym $mod+q kill
 
