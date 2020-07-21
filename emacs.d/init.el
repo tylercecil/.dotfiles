@@ -25,8 +25,6 @@
 (add-to-list 'load-path "~/.emacs.d/elisp")
 (add-to-list 'load-path "~/.emacs.d/modes")
 
-(byte-recompile-directory (expand-file-name "~/.emacs.d") 0)
-
 ;; Loads the main config files for emacs. All can be found in the elisp
 ;; directory.
 (use-package keyconfig
@@ -44,6 +42,7 @@
 ;; Loads all mode config files. All can be found in the elisp/modes
 ;; directory.
 (mapc 'load-library (list
+                     "javascript-config"
                       ;; "haskell-config"
                       ;; "agda-config"
                       ;;  "c-config"
@@ -55,3 +54,17 @@
                       ;;  "octave-config"
                       ;;  "proofgen-config"
                       ))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (matlab-mode multi-term auctex julia-mode company-lsp lsp-ui lsp-mode js2-mode typescript-mode company-ghc go-mode clang-format which-key ivy company flycheck xclip exec-path-from-shell solarized-theme linum-relative fill-column-indicator rainbow-delimiters spaceline ace-jump-mode evil-matchit evil-nerd-commenter evil-numbers evil-surround evil-leader key-chord diminish use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

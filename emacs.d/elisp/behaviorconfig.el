@@ -14,6 +14,22 @@
   (setq ns-pop-up-frames nil)
 
   ;;
+  ;; Enable mouse in terminal
+  ;;
+  (xterm-mouse-mode 1)
+  (add-hook 'after-make-frame-functions 'xterm-mouse-mode)
+
+  ;;
+  ;; Use the clipboard plz
+  ;;
+  ;; emacs -nw can't use the system clipboard, so external tools are needed.
+  (use-package xclip
+    :ensure t
+    :config (xclip-mode 1))
+  (setq select-enable-primary t)
+  (setq select-enable-clipboard nil)
+
+  ;;
   ;; Electric modes
   ;;
   (electric-pair-mode 1)
@@ -46,11 +62,7 @@
   (use-package ivy :ensure t
     :diminish ivy-mode
     :config
-    (ivy-mode 1)
-    ;; add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
-    (setq ivy-use-virtual-buffers t)
-
-    )
+    (ivy-mode 1))
 
   ;;
   ;; File Settings
