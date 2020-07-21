@@ -10,9 +10,6 @@
 [submodule "emacs.d/smyx"]
 	path = emacs.d/smyx
 	url = git@github.com:kaushalmodi/smyx.git
-[submodule "emacs.d/PG"]
-	path = emacs.d/PG
-	url = git@github.com:ProofGeneral/PG.git
 [submodule "zgen"]
 	path = zgen
 	url = git@github.com:tarjoilija/zgen.git
