@@ -24,7 +24,7 @@ setopt prompt_subst
 
     # Check if we are on SSH or not
     if [[ -n "$SSH_CLIENT"  ||  -n "$SSH2_CLIENT" ]]; then
-        PR_HOST='%F{red}%M%f' # SSH
+        PR_HOST='%F{red}%m%f' # SSH
     else
         PR_HOST='%F{green}%m%f' # no SSH
     fi
