@@ -11,8 +11,9 @@ if ! zgen saved; then
         # Some general plugins
         $ZGEN_OH_MY_ZSH_REPO plugins/web-search
         $ZGEN_OH_MY_ZSH_REPO plugins/shrink-path
-        zsh-users/zsh-syntax-highlighting
+        zdharma/fast-syntax-highlighting
         zsh-users/zsh-completions
+	zsh-users/zsh-autosuggestions
         $PLUGS/colorcat
         $PLUGS/defaults
         $PLUGS/util
