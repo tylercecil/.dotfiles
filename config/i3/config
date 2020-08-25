@@ -219,6 +219,7 @@ focus_follows_mouse no
 # exec unclutter
 # exec volumeicon
 exec ibus-daemon
+exec blueman-applet
 exec xsetroot -solid "$base02"
 exec safeeyes
 exec redshift
