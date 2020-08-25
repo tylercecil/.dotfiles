@@ -50,9 +50,14 @@
 ;;
 ;; File Settings
 ;;
+
+;; UTF-8 as default encoding
+(set-language-environment "UTF-8")
+
 ;; Makes <filename>~ be a copy ONLY WHEN the original file is hard
 ;; linked. See http://kb.iu.edu/data/acxl.html for more.
 (setq backup-by-copying-when-linked t)
+(setq backup-directory-alist `(("." . "~/.saves")))
 
 ;; Make intermediate dirs when saving
 (add-hook 'before-save-hook
