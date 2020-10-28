@@ -36,6 +36,7 @@ set clipboard=unnamed
 imap kj <Esc>
 imap jk <Esc>
 let mapleader=" "
+nmap <Space><Space> <Plug>(easymotion-overwin-f)
 
 " Spell check
 set spelllang=en
@@ -48,4 +49,7 @@ autocmd BufWritePre * %s/\s\+$//e
 augroup pandoc_syntax
   au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
   let g:pandoc#syntax#conceal#use = 0
+  au BufRead,BufNewFile *.md setlocal spell
+  au BufRead,BufNewFile *.md setlocal complete+=kspell
+  au BufRead,BufNewFile *.md setlocal tw=79
 augroup END
