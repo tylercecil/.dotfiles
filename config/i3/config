@@ -40,9 +40,6 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec ~/.bin/smart_open_shell.sh
 
-# make new emacs frame
-bindsym $mod+semicolon exec ~/.bin/emacs_launcher.sh -c
-
 # kill focused window
 bindsym $mod+q kill
 
@@ -161,6 +158,25 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
+
+# Manage moving workspaces between monitors.
+mode "multi-monitor" {
+        bindsym h move workspace to output left
+        bindsym j move workspace to output down
+        bindsym k move workspace to output up
+        bindsym l move workspace to output right
+
+        bindsym Left move workspace to output left
+        bindsym Down move workspace to output down
+        bindsym Up move workspace to output up
+        bindsym Right move workspace to output right
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "multi-monitor"
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
