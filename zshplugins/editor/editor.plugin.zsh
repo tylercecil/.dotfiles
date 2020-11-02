@@ -1,6 +1,6 @@
 EMACS_DEFAULT="emacs_launcher.sh"
+export EDITOR="nvim"
 export ALTERNATE_EDITOR='vim'
-export EDITOR="$EMACS_DEFAULT -nw"
 
 # Emacs Launchers
 alias e="$EMACS_DEFAULT"
