@@ -45,6 +45,10 @@ set spell
 " Delete trailing whitespace on save.
 autocmd BufWritePre * %s/\s\+$//e
 
+" Smartcase for search
+set ignorecase
+set smartcase
+
 " Files
 augroup pandoc_syntax
   au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
