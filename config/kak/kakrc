@@ -4,3 +4,8 @@ hook global InsertChar j %{ try %{
   exec -draft hH <a-k>jj<ret> d
   exec <esc>
 }}
+
+# LSP Settings
+eval %sh{kak-lsp --kakoune -s $kak_session}
+lsp-enable
+map -docstring "LSP Mode" global user l ': enter-user-mode lsp<ret>'
