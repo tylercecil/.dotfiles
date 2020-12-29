@@ -1,5 +1,5 @@
 EMACS_DEFAULT="emacs_launcher.sh"
-export EDITOR="nvim"
+export EDITOR="kak"
 export ALTERNATE_EDITOR='vim'
 
 # Emacs Launchers
