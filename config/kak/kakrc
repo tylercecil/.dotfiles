@@ -1,9 +1,8 @@
-add-highlighter global/ number-lines -relative
+# Using plug.kak.
+# Not strictly necessary, but perhaps cleaner.
+source "%val{config}/plugins/plug.kak/rc/plug.kak"
 
-hook global InsertChar j %{ try %{
-  exec -draft hH <a-k>jj<ret> d
-  exec <esc>
-}}
+add-highlighter global/ number-lines -relative
 
 # LSP Settings
 eval %sh{kak-lsp --kakoune -s $kak_session}
