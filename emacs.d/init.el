@@ -1,57 +1,50 @@
-3;;
-;; File:   init.el
-;; Author: Izzy Cecil
-;; Date:   Sat Mar 28 13:30:00 MDT 2015
-;;
-
-;;
-;; Initialize packages and setup use-package
-;;
 (require 'package)
 (setq package-enable-at-startup nil)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
+(unless package--initialized (package-initialize))
 
+;;; Setup use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
-
 (eval-when-compile
   (require 'use-package))
-(use-package diminish
-             :ensure t)
-(use-package bind-key)
+(setq use-package-always-ensure t)
 
-(add-to-list 'load-path "~/.emacs.d/elisp")
-(mapc 'load-library (list
-                     "keys"
-                     "theme"
-                     "style"
-                     "behavior"
-                     "idetools"
-                     "javascript"
-                      ;; "haskell-config"
-                      ;; "agda-config"
-                      ;;  "c-config"
-                      ;;  "go-config"
-                      ;;  "julia-config"
-                      ;;  "latex-config"
-                      ;;  "markdown-config"
-                      ;;  "multiterm-config"
-                      ;;  "octave-config"
-                      ;;  "proofgen-config"
-                      ))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (haste json-mode xclip which-key use-package typescript-mode spaceline solarized-theme rainbow-delimiters lsp-ui linum-relative key-chord js2-mode ivy flycheck fill-column-indicator exec-path-from-shell evil-surround evil-numbers evil-nerd-commenter evil-matchit evil-leader diminish company-lsp ace-jump-mode))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;;; Evil Settings
+(use-package evil
+  :ensure t
+  :init 
+  :config
+  (evil-mode 1))
+
+;;; Offload the custom-set-variables to a separate file
+;;; This keeps your init.el neater and you have the option
+;;; to gitignore your custom.el if you see fit.
+(setq custom-file "~/.emacs.d/custom.el")
+(unless (file-exists-p custom-file)
+  (write-region "" nil custom-file))
+;;; Load custom file. Don't hide errors. Hide success message
+(load custom-file nil t)
+
+(use-package solarized-theme
+  :ensure t
+  :config
+  (load-theme 'solarized-light t))
+(use-package spaceline-config
+  :ensure spaceline
+  :config
+  (spaceline-spacemacs-theme))
+
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+
+
+(defun frame-init (frame)
+  (select-frame frame)
+  (unless (display-graphic-p frame)
+    (set-face-background 'default "unspecified-bg" frame)
+    (xterm-mouse-mode 1)))
+
+(add-hook 'after-make-frame-functions 'frame-init)
