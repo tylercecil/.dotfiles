@@ -51,7 +51,14 @@ set clipboard=unnamed
 imap kj <Esc>
 imap jk <Esc>
 let mapleader=" "
-nmap <Space><Space> <Plug>(easymotion-overwin-f)
+
+let g:EasyMotion_do_mapping = 0
+nmap <Leader><Leader> <Plug>(easymotion-overwin-f)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+vmap <Leader><Leader> <Plug>(easymotion-overwin-f)
+vmap <Leader>j <Plug>(easymotion-j)
+vmap <Leader>k <Plug>(easymotion-k)
 
 " Spell check
 set spelllang=en
