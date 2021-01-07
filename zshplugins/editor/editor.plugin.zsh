@@ -24,4 +24,4 @@ function e() {
 
 # Change this line to update the default editor.
 # Can also be changed on the fly.
-editor_default_kak
+editor_default_nvim
