@@ -8,15 +8,17 @@ if ! zgen saved; then
     zgen oh-my-zsh
     zgen loadall <<EOF
     	aloxaf/fzf-tab
-    	
+
         $PLUGS/colorcat
         $PLUGS/defaults
         $PLUGS/editor
         $PLUGS/fzf
         $PLUGS/git
         $PLUGS/go
+        $PLUGS/haskell
         $PLUGS/ocaml
         $PLUGS/python
+        $PLUGS/rust
         $PLUGS/tex
         $PLUGS/theme
         $PLUGS/update
@@ -25,6 +27,7 @@ if ! zgen saved; then
         $ZGEN_OH_MY_ZSH_REPO plugins/shrink-path
         zdharma/fast-syntax-highlighting
         zsh-users/zsh-completions
+
 EOF
     zgen save
 fi
