@@ -1,36 +1,10 @@
-#!/usr/bin/env zsh
+ZIM_HOME=~/.config/zsh/zim
+ZDOTDIR=~/.config/zsh/
 
-source ~/.zgen/zgen.zsh
-
-if ! zgen saved; then
-    PLUGS=$HOME/.dotfiles/zshplugins   # plugin directory
-
-    zgen oh-my-zsh
-    zgen loadall <<EOF
-    	aloxaf/fzf-tab
-
-        $PLUGS/colorcat
-        $PLUGS/defaults
-        $PLUGS/editor
-        $PLUGS/fzf
-        $PLUGS/git
-        $PLUGS/go
-        $PLUGS/haskell
-        $PLUGS/ocaml
-        $PLUGS/python
-        $PLUGS/rust
-        $PLUGS/tex
-        $PLUGS/theme
-        $PLUGS/update
-        $PLUGS/util
-        $PLUGS/z
-        $ZGEN_OH_MY_ZSH_REPO plugins/shrink-path
-        zdharma/fast-syntax-highlighting
-        zsh-users/zsh-completions
-
-EOF
-    zgen save
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 
-# Set the path
-export PATH=~/.local/bin:~/.bin:/usr/local/bin:$PATH:/usr/local/sbin:/usr/bin/core_perl
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh

@@ -10,9 +10,3 @@
 [submodule "emacs.d/smyx"]
 	path = emacs.d/smyx
 	url = git@github.com:kaushalmodi/smyx.git
-[submodule "zgen"]
-	path = zgen
-	url = git@github.com:tarjoilija/zgen.git
-[submodule "emacs.d"]
-	path = emacs.d
-	url = https://github.com/hlissner/doom-emacs

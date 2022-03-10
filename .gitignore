@@ -1,42 +1,13 @@
 config/nvim/plugged
+config/zsh/zim
 
-/*~
-emacs.d/ac-comphist.dat
-emacs.d/elpa
-emacs.d/ido.last
-emacs.d/smex-items
-emacs.d/helm-adaptive-history
-config/spotify
-emacs.d/srecode-map.el
+### Zsh ###
+# Zsh compiled script + zrecompile backup
+*.zwc
+*.zwc.old
 
-# Google things to ignore
-bin/cdc
-bin/g
-bin/git-br
-bin/git-cleanup
-bin/git-co
-bin/git-d5
-bin/git-diff5
-bin/git-difftool5
-bin/git-difftoolv
-bin/git-diffv
-bin/git-dv
-bin/git-fix5
-bin/git-l5
-bin/git-lg5
-bin/git-lgv
-bin/git-ll5
-bin/git-llv
-bin/git-log5
-bin/git-logv
-bin/git-lp5
-bin/git-lpv
-bin/git-lv
-bin/git-ma5
-bin/git-multi
-bin/git-multi-take-over
-bin/git-rb5
-bin/git-rbv
-bin/git-stuff/
-bin/git-take-over
-bin/pdc
+# Zsh completion-optimization dumpfile
+*zcompdump*
+
+# Zsh zcalc history
+.zcalc_history
