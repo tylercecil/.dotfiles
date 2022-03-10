@@ -1,16 +1,20 @@
 MODDIR=~/.config/zsh/modules
 
-zmodule zsh-users/zsh-completions --fpath src
 zmodule completion
-
-zmodule zsh-users/zsh-syntax-highlighting
-zmodule zsh-users/zsh-autosuggestions
-zmodule fzf
-zmodule exa
-zmodule input
-
-zmodule git-info
-zmodule prompt-pwd
+zmodule environment
 zmodule eriner
+zmodule exa
+zmodule fzf
+zmodule git
+zmodule git-info
+zmodule input
+zmodule prompt-pwd
+zmodule zsh-users/zsh-autosuggestions
+zmodule zsh-users/zsh-completions --fpath src
+zmodule zsh-users/zsh-syntax-highlighting
 
+zmodule $MODDIR/bat
 zmodule $MODDIR/editor
+zmodule $MODDIR/fzf -s completion.zsh -s key-bindings.zsh
+zmodule $MODDIR/gitignore
+zmodule $MODDIR/z
