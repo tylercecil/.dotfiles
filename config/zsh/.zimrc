@@ -1,0 +1,16 @@
+MODDIR=~/.config/zsh/modules
+
+zmodule zsh-users/zsh-completions --fpath src
+zmodule completion
+
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-autosuggestions
+zmodule fzf
+zmodule exa
+zmodule input
+
+zmodule git-info
+zmodule prompt-pwd
+zmodule eriner
+
+zmodule $MODDIR/editor
