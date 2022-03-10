@@ -1,3 +1,12 @@
+# PATH
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+if [ -d "$HOME/.bin" ]; then
+    PATH="$HOME/.bin:$PATH"
+fi
+
 # ibus variables
 export GTK_IM_MODULE=ibus
 export XMODIFIERS=@im=ibus
