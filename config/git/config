@@ -3,7 +3,7 @@ email = tyler.i.cecil@gmail.com
 name = Tyler Cecil
 
 [core]
-excludesfile = ~/.gitignore_global
+excludesfile = ~/.config/git/gitignore_global
 
 [push]
 default = simple
