@@ -8,11 +8,12 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-# for_window [class="URxvt" instance="URxvtUtil"] floating enable
-# for_window [class="URxvt" instance="URxvtUtil"] move absolute position center
-
 set $mod Mod4
-set $sysFont font pango:Anonymous Pro 12
+set $sysFont font pango:Source Code Pro 15
+set $term alacritty
+set $locker i3lock -b -c 073642
+
+# Solarized Colors
 set $base03    #002b36
 set $base02    #073642
 set $base01    #586e75
@@ -38,13 +39,13 @@ $sysFont
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec $term
 
 # kill focused window
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "rofi -terminal urxvt -combi-modi window,drun -show combi -modi combi,run,ssh"
+bindsym $mod+d exec "rofi -terminal $term -combi-modi window,drun -show combi -modi combi,run,ssh"
 
 # change focus
 bindsym $mod+h focus left
@@ -199,7 +200,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
 
 # Lock screen
-bindsym $mod+Escape exec "i3lock --color=000000 && xset dpms force off"
+bindsym $mod+Escape exec "$locker && xset dpms force off"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -222,7 +223,8 @@ client.focused $green $green $base3 $green
 client.focused_inactive $base02 $base02 $base2 $violet
 client.unfocused $base02 $base02 $base1 $base01
 client.urgent $magenta $magenta $base3 $red
-default_border pixel 3
+default_border pixel 4
+
 ################################################################################
 # Behaviors other than keystrokes
 ################################################################################
@@ -231,10 +233,9 @@ focus_follows_mouse no
 ################################################################################
 # Start Processes
 ################################################################################
-# exec unclutter
-# exec volumeicon
-exec ibus-daemon
-exec blueman-applet
 exec xsetroot -solid "$base02"
-exec safeeyes
-exec redshift
+exec nm-applet
+exec pasystray
+exec blueman-applet
+exec xss-lock -- $lock -n
+# exec ibus-daemon
