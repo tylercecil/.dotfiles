@@ -8,6 +8,7 @@ This is a todo list for me, so I don't spend all my time configuring my stupid
 computer.
 
 [x] alacritty font
+[x] backlight
 [] Alacritty term-title
 [] xdg-open
 [] font config
@@ -22,3 +23,5 @@ computer.
 [] i3 bar config
 [] DPI scaling
 [] hot-plug monitor
+[] Screen tearing
+[] Signal tray icon

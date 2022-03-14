@@ -194,10 +194,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle && killall 
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle && killall -SIGUSR1 i3status
 
 # Screen brightness
-# TODO: xbacklight doesn't find my monitor.
-# https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 
 # Lock screen
 bindsym $mod+Escape exec "$locker && xset dpms force off"
