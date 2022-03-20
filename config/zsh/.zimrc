@@ -12,6 +12,7 @@ zmodule prompt-pwd
 zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-completions --fpath src
 zmodule zsh-users/zsh-syntax-highlighting
+zmodule trystan2k/zsh-tab-title
 
 zmodule $MODDIR/bat
 zmodule $MODDIR/editor
