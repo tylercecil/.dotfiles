@@ -16,6 +16,7 @@ call plug#begin()
 Plug 'tpope/vim-surround'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-pandoc/vim-pandoc-syntax'
+Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 set nocompatible
@@ -28,20 +29,16 @@ set fileencoding=utf-8
 set ignorecase
 set smartcase
 
+" THEME
 set rnu
 set nu
-
 set wrap!
-
 set colorcolumn=80
-
-syntax enable
-set background=dark
-colorscheme solarized
-
 set list
 set listchars=tab:»\ ,extends:›,precedes:‹,nbsp:·,trail:·
-set t_Co=256
+syntax enable
+set background=light
+colorscheme solarized
 
 set tabstop=2 shiftwidth=2 expandtab
 
@@ -81,5 +78,3 @@ augroup latex
   au BufRead,BufNewFile *.tex setlocal complete+=kspell
   au BufRead,BufNewFile *.tex setlocal tw=79
 augroup END
-
-source ~/.config/nvim/google_config.vim
