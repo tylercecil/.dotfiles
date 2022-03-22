@@ -203,9 +203,9 @@ bindsym $mod+Escape exec "$locker && xset dpms force off"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  position top
-        status_command i3status --config ~/.config/i3/i3status.conf
   $sysFont
+  position top
+  status_command i3status-rs ~/.config/i3/i3status-rs.toml
   colors {
     separator $green
     background $base03
@@ -235,5 +235,5 @@ exec xsetroot -solid "$base02"
 exec nm-applet
 exec pasystray
 exec blueman-applet
-exec xss-lock -- $lock -n
+exec xss-lock -- $locker -n
 # exec ibus-daemon
