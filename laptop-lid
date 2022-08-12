@@ -1,0 +1,3 @@
+# /etc/acpi/events/laptop-lid
+event=button/lid
+action=DISPLAY=":0" XAUTHORITY="/home/tyler/.Xauthority" /home/tyler/bin/update_screens.sh
