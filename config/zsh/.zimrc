@@ -2,7 +2,7 @@ MODDIR=~/.config/zsh/modules
 
 zmodule completion
 zmodule environment
-zmodule eriner
+zmodule eriner       # [Theme](https://github.com/zimfw/eriner)
 zmodule exa
 zmodule fzf
 zmodule git
@@ -16,6 +16,6 @@ zmodule trystan2k/zsh-tab-title
 
 zmodule $MODDIR/bat
 zmodule $MODDIR/editor
-zmodule $MODDIR/fzf -s completion.zsh -s key-bindings.zsh
+# zmodule $MODDIR/fzf -s completion.zsh -s key-bindings.zsh
 zmodule $MODDIR/gitignore
 zmodule $MODDIR/z
