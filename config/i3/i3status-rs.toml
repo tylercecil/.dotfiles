@@ -24,6 +24,12 @@ block = "backlight"
 device = "intel_backlight"
 
 [[block]]
+block = "bluetooth"
+mac = "00:18:00:3A:B6:26"
+hide_disconnected = true
+format = "{label}"
+
+[[block]]
 block = "battery"
 if_command = "test -e /sys/class/power_supply/BAT0"
 
