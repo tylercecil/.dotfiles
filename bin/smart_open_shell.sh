@@ -6,14 +6,14 @@
 set -x
 
 # TODO: Using urxvtc presents a problem --- the pid is always of the deamon.
-TERM_NAME=urxvt
-TERM_CMD=urxvt
+TERM_NAME=alacritty
+TERM_CMD=alacritty
 
 # Open a term at a directory
 function cdterm {
   DIR=${1}
   shift 1
-  ${TERM_CMD} ${@} -cd "${DIR}"
+  ${TERM_CMD} ${@} --working-directory "${DIR}"
 }
 
 # Open a term with an SSH connection
@@ -33,7 +33,7 @@ if ! [[ "${X_PID}" ]] || [[ "${X_CMD}" != $TERM_NAME ]]; then
   exit
 fi
 
-# Get shell or ssh information. 
+# Get shell or ssh information.
 SSH_PID=$(pstree -p ${X_PID} | grep -e 'ssh([0-9]*)' -o | sed 's/[^0-9]//g')
 SHELL_PID=$(pgrep -P ${X_PID} $(basename ${SHELL}))
 if [[ ${SSH_PID} ]]; then

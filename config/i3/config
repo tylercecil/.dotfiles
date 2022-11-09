@@ -10,7 +10,7 @@
 
 set $mod Mod4
 set $sysFont font pango:Source Code Pro 15
-set $term alacritty
+set $term ~/bin/smart_open_shell.sh
 set $locker i3lock -b -c 073642
 
 # Solarized Colors
