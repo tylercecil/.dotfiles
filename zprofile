@@ -1,11 +1,5 @@
 # PATH
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
-
-if [ -d "$HOME/.bin" ]; then
-    PATH="$HOME/.bin:$PATH"
-fi
+PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 
 # ibus variables
 export GTK_IM_MODULE=ibus
