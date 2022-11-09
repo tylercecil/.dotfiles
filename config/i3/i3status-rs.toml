@@ -17,6 +17,7 @@ device_format = "{icon}{ap}"
 
 [[block]]
 block = "sound"
+on_click = "pavucontrol"
 
 [[block]]
 block = "backlight"
