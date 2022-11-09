@@ -45,7 +45,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "rofi -terminal $term -combi-modi window,drun -show combi -modi combi,run,ssh"
+bindsym $mod+d exec "rofi -terminal $term -combi-modi window,drun -show combi -modi combi,run,ssh -icon-theme 'Papirus' -show-icons"
 
 # change focus
 bindsym $mod+h focus left
