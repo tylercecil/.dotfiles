@@ -232,8 +232,6 @@ focus_follows_mouse no
 # Start Processes
 ################################################################################
 exec xsetroot -solid "$base02"
-exec nm-applet
-exec pasystray
-exec blueman-applet
 exec xss-lock -- $locker -n
+exec dunst
 # exec ibus-daemon
