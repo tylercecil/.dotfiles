@@ -1,5 +1,7 @@
 config/nvim/plugged
 config/zsh/zim
+config/zsh/.zcompcache/
+config/zsh/.zhistory
 
 ### Zsh ###
 # Zsh compiled script + zrecompile backup
