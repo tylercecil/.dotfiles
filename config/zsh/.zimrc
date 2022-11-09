@@ -1,3 +1,6 @@
+# .zimrc
+# See https://zimfw.sh/docs/ for more info
+
 MODDIR=~/.config/zsh/modules
 
 zmodule completion
@@ -16,6 +19,6 @@ zmodule trystan2k/zsh-tab-title
 
 zmodule $MODDIR/bat
 zmodule $MODDIR/editor
-# zmodule $MODDIR/fzf -s completion.zsh -s key-bindings.zsh
+zmodule $MODDIR/fzf-zsh -s completion.zsh -s key-bindings.zsh
 zmodule $MODDIR/gitignore
 zmodule $MODDIR/z
