@@ -4,6 +4,7 @@ name = Tyler Cecil
 
 [core]
 excludesfile = ~/.config/git/gitignore_global
+editor = nvim
 
 [push]
 default = simple
@@ -22,6 +23,7 @@ keepBackup = false
 	ll = log --stat
 	lg = log
 	lp = log -p
+	root = rev-parse --show-toplevel
 
 [cleanup]
 keep-branches = master
