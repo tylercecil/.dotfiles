@@ -13,10 +13,12 @@
 " PlugUpdate
 " PluClean
 call plug#begin()
-Plug 'tpope/vim-surround'
-Plug 'easymotion/vim-easymotion'
-Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'altercation/vim-colors-solarized'
+Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'tpope/vim-surround'
+Plug 'vim-pandoc/vim-pandoc-syntax'
 call plug#end()
 
 set nocompatible
@@ -45,18 +47,6 @@ set tabstop=2 shiftwidth=2 expandtab
 set mouse=a
 set clipboard=unnamed
 
-imap kj <Esc>
-imap jk <Esc>
-let mapleader=" "
-
-let g:EasyMotion_do_mapping = 0
-nmap <Leader><Leader> <Plug>(easymotion-overwin-f)
-nmap <Leader>j <Plug>(easymotion-j)
-nmap <Leader>k <Plug>(easymotion-k)
-vmap <Leader><Leader> <Plug>(easymotion-overwin-f)
-vmap <Leader>j <Plug>(easymotion-j)
-vmap <Leader>k <Plug>(easymotion-k)
-
 " Spell check
 set spelllang=en
 set spell
@@ -78,3 +68,18 @@ augroup latex
   au BufRead,BufNewFile *.tex setlocal complete+=kspell
   au BufRead,BufNewFile *.tex setlocal tw=79
 augroup END
+
+" Keys
+imap kj <Esc>
+imap jk <Esc>
+
+let mapleader=" "
+
+" EasyMotion configuration
+let g:EasyMotion_do_mapping = 0
+nmap <Leader><Leader> <Plug>(easymotion-overwin-f)
+nmap <Leader>j <Plug>(easymotion-j)
+nmap <Leader>k <Plug>(easymotion-k)
+vmap <Leader><Leader> <Plug>(easymotion-overwin-f)
+vmap <Leader>j <Plug>(easymotion-j)
+vmap <Leader>k <Plug>(easymotion-k)
