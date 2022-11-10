@@ -1,29 +1,34 @@
-[user]
-email = tyler.i.cecil@gmail.com
-name = Tyler Cecil
-
-[core]
-excludesfile = ~/.config/git/gitignore_global
-editor = nvim
-
-[push]
-default = simple
-
-[merge]
-tool = emerge
-
-[mergetool]
-keepBackup = false
-
-[color]
-	ui = auto
-
 [alias]
-	l = log --pretty=format:'%C(yellow)%h%C(white) %an <%ae> %>|(80)%ai%Creset%n%C(bold)%w(0,4,4)%s%C(reset)%n%+b'
-	ll = log --stat
-	lg = log
-	lp = log -p
-	root = rev-parse --show-toplevel
+  l = log --pretty=format:'%C(yellow)%h%C(white) %an <%ae> %>|(80)%ai%Creset%n%C(bold)%w(0,4,4)%s%C(reset)%n%+b'
+  ll = log --stat
+  lg = log
+  lp = log -p
+  root = rev-parse --show-toplevel
 
 [cleanup]
-keep-branches = master
+  keep-branches = master
+
+[color]
+  ui = auto
+
+[core]
+  excludesfile = ~/.config/git/gitignore_global
+  editor = nvim
+  pager = delta
+
+[delta]
+  navigate = true
+  light = true
+
+[diff]
+  colorMoved = default
+
+[merge]
+  conflictstyle = diff3
+
+[push]
+  default = simple
+
+[user]
+  email = tyler.i.cecil@gmail.com
+  name = Tyler Cecil
