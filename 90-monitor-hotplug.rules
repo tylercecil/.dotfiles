@@ -1,8 +1,8 @@
 # /etc/udev/rules.d/90-monitor-hotplug.rules
 
-ACTION=="change" \
-  , SUBSYSTEM=="drm" \
-  # , HOTPLUG=="1" \
-  , ENV{DISPLAY}=":0" \
-  , ENV{XAUTHORITY}="/home/tyler/.Xauthority" \
-  , RUN+="/home/tyler/bin/update_screens.sh"
+# ACTION=="change" \
+#   , SUBSYSTEM=="drm" \
+#   # , HOTPLUG=="1" \
+#   , ENV{DISPLAY}=":0" \
+#   , ENV{XAUTHORITY}="/home/tyler/.Xauthority" \
+#   , RUN+="/home/tyler/bin/update_screens.sh"
