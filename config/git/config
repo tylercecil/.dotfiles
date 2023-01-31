@@ -24,6 +24,9 @@
 [diff]
   colorMoved = default
 
+[init]
+  defaultBranch = main
+
 [merge]
   conflictstyle = diff3
 
