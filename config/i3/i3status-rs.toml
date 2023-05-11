@@ -30,6 +30,7 @@ cmd = "alacritty -e nmcli"
 
 [[block]]
 block = "sound"
+headphones_indicator = true
 [[block.click]]
 button = "left"
 cmd = "pavucontrol"
