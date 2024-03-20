@@ -8,5 +8,6 @@ fi
 
 export BAT_THEME="Solarized (light)"
 export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+export MANROFFOPT="-c"
 alias cat='bat'
 alias less='bat'
