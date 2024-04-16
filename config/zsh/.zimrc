@@ -23,5 +23,6 @@ zmodule $MODDIR/editor
 zmodule $MODDIR/fzf-zsh -s completion.zsh -s key-bindings.zsh
 zmodule $MODDIR/git
 zmodule $MODDIR/gitignore
+zmodule $MODDIR/go
 zmodule $MODDIR/python
 zmodule $MODDIR/z
