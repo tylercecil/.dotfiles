@@ -96,10 +96,10 @@ alt-e = 'layout tiles horizontal vertical' # 'layout toggle split' in i3
 alt-shift-space = 'layout floating tiling' # 'floating toggle' in i3
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#focus
-alt-h = 'focus left'
-alt-j = 'focus down'
-alt-k = 'focus up'
-alt-l = 'focus right'
+alt-h = 'focus --boundaries all-monitors-outer-frame left'
+alt-j = 'focus --boundaries all-monitors-outer-frame down'
+alt-k = 'focus --boundaries all-monitors-outer-frame up'
+alt-l = 'focus --boundaries all-monitors-outer-frame right'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move
 alt-shift-h = 'move left'
@@ -117,6 +117,7 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
+alt-0 = 'workspace 10'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -128,10 +129,11 @@ alt-shift-6 = 'move-node-to-workspace 6'
 alt-shift-7 = 'move-node-to-workspace 7'
 alt-shift-8 = 'move-node-to-workspace 8'
 alt-shift-9 = 'move-node-to-workspace 9'
+alt-shift-0 = 'move-node-to-workspace 10'
 
-alt-esc = 'reload-config'
 alt-r = 'mode resize'
 alt-m = 'mode monitor'
+alt-esc = 'mode X'
 
 [mode.resize.binding]
 h = 'resize width -50'
@@ -140,9 +142,16 @@ k = 'resize height -50'
 l = 'resize width +50'
 enter = 'mode main'
 esc = 'mode main'
+alt-esc = 'mode X'
 
 [mode.monitor.binding]
 h = 'move-workspace-to-monitor --wrap-around next'
 l = 'move-workspace-to-monitor --wrap-around prev'
 enter = 'mode main'
+esc = 'mode main'
+alt-esc = 'mode X'
+
+[mode.X.binding]
+# A mode to just pass keys through!
+alt-esc = 'mode main'
 esc = 'mode main'
