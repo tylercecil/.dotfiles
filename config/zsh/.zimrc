@@ -10,7 +10,7 @@ zmodule exa
 zmodule fzf
 zmodule git-info
 zmodule input
-zmodule python-virtualenvwrapper/virtualenvwrapper
+# zmodule python-virtualenvwrapper/virtualenvwrapper
 zmodule prompt-pwd
 zmodule trystan2k/zsh-tab-title
 zmodule zsh-users/zsh-autosuggestions
@@ -24,5 +24,8 @@ zmodule $MODDIR/fzf-zsh -s completion.zsh -s key-bindings.zsh
 zmodule $MODDIR/git
 zmodule $MODDIR/gitignore
 zmodule $MODDIR/go
+zmodule $MODDIR/graphite
+zmodule $MODDIR/ls-tools
 zmodule $MODDIR/python
+zmodule $MODDIR/voltus
 zmodule $MODDIR/z
