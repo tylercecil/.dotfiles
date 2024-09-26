@@ -6,7 +6,6 @@ MODDIR=~/.config/zsh/modules
 zmodule completion
 zmodule environment
 zmodule eriner       # [Theme](https://github.com/zimfw/eriner)
-zmodule exa
 zmodule fzf
 zmodule git-info
 zmodule input
