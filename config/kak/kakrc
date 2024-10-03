@@ -1,38 +1,71 @@
-# UI Config
-add-highlighter global/ number-lines -relative -hlcursor
-set global ui_options ncurses_assistant=none
+# Set up Bundle manager
+evaluate-commands %sh{
+  plugins="$kak_config/bundle"
+  mkdir -p "$plugins"
+  [ ! -e "$plugins/kak-bundle" ] && \
+    git clone -q https://codeberg.org/jdugan6240/kak-bundle "$plugins/kak-bundle"
+  printf "%s\n" "source '$plugins/kak-bundle/rc/kak-bundle.kak'"
+}
+bundle-noload kak-bundle https://codeberg.org/jdugan6240/kak-bundle
 
-# buffer.kak Settings
-# hook global WinDisplay .* info-buffers
-# 
-# map global user b ':enter-buffers-mode<ret>'              -docstring 'buffers…'
-# map global user B ':enter-user-mode -lock buffers<ret>'   -docstring 'buffers (lock)…'
-# 
-# alias global bd delete-buffer
-# alias global bf buffer-first
-# alias global bl buffer-last
-# alias global bo buffer-only
-# alias global bo! buffer-only-force
+# Clipboard
+# This syncs the sytem clipboard with kakoune's " register.
+bundle kakboard "https://github.com/lePerdu/kakboard" %{
+    hook global WinCreate .* %{ kakboard-enable }
+}
 
-# LSP Settings
+  # LSP Settings
 eval %sh{kak-lsp --kakoune -s $kak_session}
 set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
-hook global WinSetOption filetype=(haskell) %{
+hook global WinSetOption filetype=(go) %{
+    # Keys
+    map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
+    map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
+    map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+    map global object <a-a> '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+    map global object f '<a-semicolon>lsp-object Function Method<ret>' -docstring 'LSP function or method'
+    map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
+    map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
+    map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+
     lsp-enable-window
-    # lsp-auto-hover-enable
+    lsp-auto-hover-enable
     set-option global lsp_auto_highlight_references true
     set-option global lsp_hover_anchor true
     set-option global lsp_hover_max_lines 15
-    map -docstring "LSP Mode" global user l ': enter-user-mode lsp<ret>'
+}
+hook global BufSetOption filetype=rust %{
+    hook buffer BufWritePre .* lsp-formatting-sync
 }
 
-# Emacs editing keystrokes
-map global insert <c-a> '<a-;>gh' 
-map global insert <c-e> '<a-;>gl'
-map global insert <c-left> '<a-;>b<a-;>;' 
-map global insert <c-right> '<a-;>w<a-;>;'
+# TODO
+#   Plugins I'm interested in
+#   - kakboard
+#   - kakoune-easymotion
+#   - kakoune-buffers
+#   - kakoune-surround
+#   - byline
+#  Topics I want to nail down
+#    - TABBING
+#    + CLIPBOARD
+#    - CLIENT MANAGMENT
+#    - Spell check
+#    - Lsp Config
+#      - Status line
+#      - Docs
+#      - Tab through snippets?
+#      
+#    - Object selection / navigation
 
-map global normal <c-a> 'gh' 
-map global normal <c-e> 'gl'
-map global normal <c-left> 'b' 
-map global normal <c-right> 'w'
+# UI Config
+colorscheme solarized-light
+add-highlighter global/ number-lines -hlcursor
+bundle yummy.kak https://github.com/Hjagu09/yummy.kak %{
+    require-module yummy
+    set global yummy_fmt_left "$mode $modified$bufname$git"
+    set global yummy_fmt_right "$lsp_error$lsp_warn$lsp_info$lsp_hint $selection $client_server"
+    set global yummy_client_server_format "$kak_client"
+
+    face global yummy_selection_face StatusLine
+    yummy-enable
+}
