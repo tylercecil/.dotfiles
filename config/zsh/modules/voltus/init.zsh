@@ -1,6 +1,14 @@
 export VOLTUS=$HOME/src/voltus
 export PATH=$PATH:$VOLTUS/bin
 
+# I want to make this a more general function, but for now I've got two dumb
+# ones...
+alias dbprod='thor -e prod db --name schedulerdb exec pgcli'
+alias dbdev='thor -e dev db --name schedulerdb exec pgcli'
+
+# The following block was requested by our on boarding process. I'm... Actually
+# pretty sure I could remove most of it, but just going to leave it for the time
+# being.
 if [[ "${PYENV_ROOT:-""}" == "" ]]; then
   export PYENV_ROOT=$HOME/.pyenv
   export PATH=$PYENV_ROOT/bin:$PATH
@@ -32,3 +40,5 @@ binPaths=(
 for dir in "${binPaths[@]}"; do
   pathmunge "$dir"
 done
+
+
