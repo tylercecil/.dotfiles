@@ -9,7 +9,7 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
-set $sysFont font pango:Source Code Pro 15
+set $sysFont font pango:SauceCodePro Nerd Font 12
 set $term ~/bin/smart_open_shell.sh
 set $locker i3lock -b -c 073642
 
@@ -179,6 +179,27 @@ mode "multi-monitor" {
 
 bindsym $mod+m mode "multi-monitor"
 
+# I'd actually really like to turn this into a rofi menu
+# Maybe along with a power menue?
+mode "user" {
+        # Manage ARandR configs
+        bindsym backslash  exec "~/bin/update_screens.sh" ; mode "default"
+        bindsym Shift+bar  exec "~/.screenlayout/$(ls ~/.screenlayout | rofi -dmenu)"; mode "default"
+
+        # Take Screenshots
+        bindsym p exec "mkdir -p ~/screenshots/ && maim -s ~/screenshots/$(date +'%a-%T').jpg"; mode "default"
+
+        # Toggle Darkmode
+        bindsym d exec "~/bin/dark-toggle dark"; mode "default"
+        bindsym l exec "~/bin/dark-toggle light; mode "default"
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+semicolon mode "user"
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioPause exec playerctl pause
@@ -200,12 +221,6 @@ bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10
 # Lock screen
 bindsym $mod+Escape exec "$locker && xset dpms force off"
 
-# Manage ARandR configs
-bindsym $mod+backslash exec "~/bin/update_screens.sh"
-bindsym $mod+Shift+bar       exec "~/.screenlayout/$(ls ~/.screenlayout | rofi -dmenu)"
-
-# Take Screenshots
-bindsym $mod+p exec "mkdir -p ~/screenshots/ && maim -s ~/screenshots/$(date +'%a-%T').jpg"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -241,4 +256,5 @@ focus_follows_mouse no
 exec xsetroot -solid "$base02"
 exec xss-lock -- $locker -n
 exec dunst
+exec xfsettingsd --sm-client-disable
 # exec ibus-daemon

@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+if [[ $1 == "dark" ]]; then
+    for script in $(fd . $SCRIPT_DIR/dark-mode.d/ --type=x -a); do
+        $script
+    done
+elif [[ $1 == "light" ]]; then
+    for script in $(fd . $SCRIPT_DIR/light-mode.d/ --type=x -a); do
+        $script
+    done
+fi

@@ -3,22 +3,22 @@
 option_as_alt = "OnlyLeft"
 
 [font]
-size = 14
+size = 10
 
 [font.bold]
-family = "SauceCodePRo Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
-family = "SauceCodePRo Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "SauceCodePRo Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Italic"
 
 [font.normal]
-family = "SauceCodePRo Nerd Font"
+family = "SauceCodePro Nerd Font"
 style = "Regular"
 
 [general]
@@ -30,4 +30,3 @@ import = [
 # regex = "[^ ]+\\.go:\\d+"
 # command = { program = "nvim", args = [] }
 # mouse = { enabled = true }
-
