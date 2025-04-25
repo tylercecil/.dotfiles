@@ -26,5 +26,6 @@ zmodule $MODDIR/go
 zmodule $MODDIR/graphite
 zmodule $MODDIR/ls-tools
 zmodule $MODDIR/python
+zmodule $MODDIR/rust
 zmodule $MODDIR/voltus
 zmodule $MODDIR/z
