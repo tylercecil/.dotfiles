@@ -4,4 +4,4 @@ if [ -n "$ZSH_VERSION" ]; then
     fi
 fi
 
-PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
