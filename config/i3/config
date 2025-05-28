@@ -191,7 +191,7 @@ mode "user" {
 
         # Toggle Darkmode
         bindsym d exec "~/bin/dark-toggle dark"; mode "default"
-        bindsym l exec "~/bin/dark-toggle light; mode "default"
+        bindsym l exec "~/bin/dark-toggle light"; mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
