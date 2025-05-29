@@ -1,7 +1,7 @@
 [theme]
 theme = "solarized-dark"
 [icons]
-icons = "awesome4"
+icons = "material-nf"
 
 [[block]]
 block = "memory"
@@ -44,6 +44,9 @@ block = "bluetooth"
 mac = "00:18:00:3A:B6:26"
 disconnected_format = ""
 format = " $icon "
+[[block.click]]
+button = "left"
+cmd = "alacritty -e bluetui"
 
 [[block]]
 block = "battery"
