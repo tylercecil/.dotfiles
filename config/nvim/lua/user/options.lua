@@ -1,6 +1,10 @@
 vim.g.have_nerd_font = true
 vim.g.mapleader = " "
 
+-- Spellcheck
+vim.opt.spell = true
+vim.opt.spelllang = "en"
+
 -- vim.opt.relativenumber = true
 vim.opt.number = true -- Make line numbers default
 vim.opt.showmode = false -- Don't show the mode, since it's already in the status line
