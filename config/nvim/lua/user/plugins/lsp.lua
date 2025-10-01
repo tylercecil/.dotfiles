@@ -1,3 +1,4 @@
+-- TODO(tcecil) Let's clean up the names of "kicstart-..." for the augroups...
 return {
 	-- Main LSP Configuration
 	"neovim/nvim-lspconfig",
