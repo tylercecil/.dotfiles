@@ -160,6 +160,7 @@ return {
 			gopls = {},
 			pyright = {},
 			terraformls = {},
+			ts_ls = {},
 			lua_ls = {
 				settings = {
 					Lua = {
