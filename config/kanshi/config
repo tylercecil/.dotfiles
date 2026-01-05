@@ -1,0 +1,14 @@
+output "Sony SONY TV  *00 0x01010101" {
+	scale 2.5
+	alias $TV
+}
+
+output "LG Display 0x05EE Unknown" {
+	scale 2
+	alias $THINKPAD
+}
+
+profile tv {
+	output $TV enable
+	output $THINKPAD disable
+}
