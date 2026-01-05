@@ -14,29 +14,35 @@ bundle kakboard "https://github.com/lePerdu/kakboard" %{
     hook global WinCreate .* %{ kakboard-enable }
 }
 
-  # LSP Settings
-eval %sh{kak-lsp --kakoune -s $kak_session}
-set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
-hook global WinSetOption filetype=(go) %{
-    # Keys
-    map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
-    map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
-    map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
-    map global object <a-a> '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
-    map global object f '<a-semicolon>lsp-object Function Method<ret>' -docstring 'LSP function or method'
-    map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
-    map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
-    map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+# Tree Sitter Config
+eval %sh{ kak-tree-sitter -dks -vvvv --init $kak_session }
+colorscheme catppuccin_machiato
 
-    lsp-enable-window
-    lsp-auto-hover-enable
-    set-option global lsp_auto_highlight_references true
-    set-option global lsp_hover_anchor true
-    set-option global lsp_hover_max_lines 15
-}
-hook global BufSetOption filetype=rust %{
-    hook buffer BufWritePre .* lsp-formatting-sync
-}
+  # LSP Settings
+# eval %sh{kak-lsp --kakoune -s $kak_session}
+# set global lsp_cmd "kak-lsp -s %val{session} -vvv --log /tmp/kak-lsp.log"
+# hook global WinSetOption filetype=(go) %{
+#     hook buffer BufWritePre .* lsp-formatting-sync
+# 
+#     # Keys
+#     map global user l %{:enter-user-mode lsp<ret>} -docstring "LSP mode"
+#     map global insert <tab> '<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>' -docstring 'Select next snippet placeholder'
+#     # map global object a '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+#     # map global object <a-a> '<a-semicolon>lsp-object<ret>' -docstring 'LSP any symbol'
+#     # map global object f '<a-semicolon>lsp-object Function Method<ret>' -docstring 'LSP function or method'
+#     # map global object t '<a-semicolon>lsp-object Class Interface Struct<ret>' -docstring 'LSP class interface or struct'
+#     # map global object d '<a-semicolon>lsp-diagnostic-object --include-warnings<ret>' -docstring 'LSP errors and warnings'
+#     # map global object D '<a-semicolon>lsp-diagnostic-object<ret>' -docstring 'LSP errors'
+# 
+#     lsp-enable-window
+#     lsp-auto-hover-enable
+#     set-option global lsp_auto_highlight_references true
+#     set-option global lsp_hover_anchor true
+#     set-option global lsp_hover_max_lines 15
+# }
+# hook global BufSetOption filetype=rust %{
+#     hook buffer BufWritePre .* lsp-formatting-sync
+# }
 
 # TODO
 #   Plugins I'm interested in
@@ -58,14 +64,14 @@ hook global BufSetOption filetype=rust %{
 #    - Object selection / navigation
 
 # UI Config
-colorscheme solarized-light
-add-highlighter global/ number-lines -hlcursor
-bundle yummy.kak https://github.com/Hjagu09/yummy.kak %{
-    require-module yummy
-    set global yummy_fmt_left "$mode $modified$bufname$git"
-    set global yummy_fmt_right "$lsp_error$lsp_warn$lsp_info$lsp_hint $selection $client_server"
-    set global yummy_client_server_format "$kak_client"
-
-    face global yummy_selection_face StatusLine
-    yummy-enable
-}
+# colorscheme solarized-light
+# add-highlighter global/ number-lines -hlcursor
+# bundle yummy.kak https://github.com/Hjagu09/yummy.kak %{
+#     require-module yummy
+#     set global yummy_fmt_left "$mode $modified$bufname$git"
+#     set global yummy_fmt_right "$lsp_error$lsp_warn$lsp_info$lsp_hint $client_server"
+#     set global yummy_client_server_format "$kak_client"
+# 
+#     face global yummy_selection_face StatusLine
+#     yummy-enable
+# }
