@@ -1,5 +1,6 @@
 ZIM_HOME=~/.config/zsh/zim
 ZDOTDIR=~/.config/zsh
+ZIM_CONFIG_FILE=~/.config/zsh/zimrc
 
 # Used by zsh-tab-title module
 ZSH_TAB_TITLE_ADDITIONAL_TERMS='alacritty'
