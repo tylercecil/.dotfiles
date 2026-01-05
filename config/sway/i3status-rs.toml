@@ -1,0 +1,63 @@
+[theme]
+theme = "solarized-dark"
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "memory"
+format = " $icon $mem_used_percents.eng(w:1) "
+interval = 30
+warning_mem = 70
+critical_mem = 90
+[[block.click]]
+button = "left"
+cmd = "alacritty -e htop"
+
+[[block]]
+block = "cpu"
+interval = 1
+[[block.click]]
+button = "left"
+cmd = "alacritty -e htop"
+
+[[block]]
+block="net"
+device="wlp0s20f3"
+format = " $icon $ssid "
+[[block.click]]
+button = "left"
+cmd = "alacritty -e nmcli"
+
+[[block]]
+block = "sound"
+headphones_indicator = true
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "backlight"
+device = "intel_backlight"
+
+[[block]]
+block = "bluetooth"
+mac = "00:18:00:3A:B6:26"
+disconnected_format = ""
+format = " $icon "
+[[block.click]]
+button = "left"
+cmd = "alacritty -e bluetui"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "
+full_format = " $icon $percentage "
+empty_format = " $icon $percentage "
+
+[[block]]
+block = "time"
+interval = 30
+[block.format]
+full = " $icon $timestamp.datetime(f:'%a %b %d %R') "
+short = " $icon $timestamp.datetime(f:'%R') "
+
