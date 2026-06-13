@@ -3,7 +3,7 @@
 option_as_alt = "OnlyLeft"
 
 [font]
-size = 10
+size = 7
 
 [font.bold]
 family = "SauceCodePro Nerd Font"
@@ -30,3 +30,8 @@ import = [
 # regex = "[^ ]+\\.go:\\d+"
 # command = { program = "nvim", args = [] }
 # mouse = { enabled = true }
+
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
