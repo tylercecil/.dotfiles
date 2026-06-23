@@ -1,47 +1,53 @@
 #!/usr/bin/env bash
-# Opens a new $TERM (urxvt) preserving
-#  1) The directory of the current selected window
-#  2) The ssh connection of the current selected window
-# Otherwise opens up a fresh instance of urxvt.
+
+# Opens a new terminal preserving:
+#  1) The directory of the current focused window
+#  2) The ssh connection of the current focused window
+# Otherwise opens a fresh terminal.
+
 set -x
+TERM=alacritty
 
-# TODO: Using urxvtc presents a problem --- the pid is always of the deamon.
-TERM_NAME=alacritty
-TERM_CMD=alacritty
-
-# Open a term at a directory
 function cdterm {
   DIR=${1}
   shift 1
-  ${TERM_CMD} ${@} --working-directory "${DIR}"
+  ${TERM} ${@} --working-directory "${DIR}"
 }
 
-# Open a term with an SSH connection
 function sshterm {
   SSH_CMD=${1}
   shift 1
-  ${TERM_CMD} ${@} -e /bin/sh -c "exec ${SSH_CMD}"
+  ${TERM} ${@} -e /bin/sh -c "exec ${SSH_CMD}"
 }
 
-# Get focused window PID.
-X_PID=$(xdotool getwindowfocus getwindowpid)
+# Get focused window PID — sway or X11
+function get_focused_pid {
+  if [[ -n "$SWAYSOCK" ]]; then
+    swaymsg -t get_tree | jq '.. | select(.focused? and .pid?) | .pid'
+  elif [[ -n "$DISPLAY" ]]; then
+    xdotool getwindowfocus getwindowpid
+  fi
+}
 
-# Check if focused window isn't term. If not, launch term normally.
-X_CMD=$(basename $(cat "/proc/${X_PID}/cmdline" | cut -d '' -f 1))
-if ! [[ "${X_PID}" ]] || [[ "${X_CMD}" != $TERM_NAME ]]; then
-  $TERM_CMD
+FOCUSED_PID=$(get_focused_pid)
+FOCUSED_CMD=$(basename "$(cut -d '' -f 1 "/proc/${FOCUSED_PID}/cmdline" 2>/dev/null)")
+
+if ! [[ "${FOCUSED_PID}" ]] || [[ "${FOCUSED_CMD}" != "$TERM" ]]; then
+  $TERM
   exit
 fi
 
-# Get shell or ssh information.
-SSH_PID=$(pstree -p ${X_PID} | grep -e 'ssh([0-9]*)' -o | sed 's/[^0-9]//g')
-SHELL_PID=$(pgrep -P ${X_PID} $(basename ${SHELL}))
-if [[ ${SSH_PID} ]]; then
-  SSH_CMD=$(cat "/proc/${SSH_PID}/cmdline" | tr "\0" " ")
-  sshterm "${SSH_CMD}" ${@}
-elif [[ ${SHELL_PID} ]]; then
-  DIR=$(readlink "/proc/$SHELL_PID/cwd")
-  cdterm "${DIR}" ${@}
-fi
+# Detect ssh or shell child of the terminal process
+SSH_PID=$(pstree -p "${FOCUSED_PID}" | grep -o 'ssh([0-9]*)' | sed 's/[^0-9]//g')
+SHELL_PID=$(pgrep -P "${FOCUSED_PID}" "$(basename "${SHELL}")")
 
+if [[ ${SSH_PID} ]]; then
+  SSH_CMD=$(tr "\0" " " < "/proc/${SSH_PID}/cmdline")
+  sshterm "${SSH_CMD}" "${@}"
+elif [[ ${SHELL_PID} ]]; then
+  DIR=$(readlink "/proc/${SHELL_PID}/cwd")
+  cdterm "${DIR}" "${@}"
+else
+  $TERM
+fi
 set +x
