@@ -8,7 +8,22 @@ output "LG Display 0x05EE Unknown" {
 	alias $THINKPAD
 }
 
+output "LG Display 0x07A6 Unknown" {
+	scale 1
+	alias $DELL
+}
+
+output "Lenovo Group Limited P27h-20 V906AZH6" {
+	scale 1
+	alias $DESK
+}
+
 profile tv {
 	output $TV enable
 	output $THINKPAD disable
+}
+
+profile work_desk {
+	output $DELL enable
+	output $DESK enable
 }
