@@ -1,7 +1,5 @@
-if [ -n "$ZSH_VERSION" ]; then
-    if [ -f "$HOME/.zshrc" ]; then
-      "$HOME/.zshrc"
-    fi
-fi
+# ~/.profile
 
-PATH="$HOME/bin:$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
+for f in ~/.config/environment.d/*.conf; do
+	set -a; . "$f"; set +a
+done

@@ -14,7 +14,7 @@ vim.opt.wrap = false
 vim.opt.textwidth = 100
 
 vim.opt.mouse = "a" -- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.clipboard = "unnamedplus" -- Sync clipboard between OS and Neovim.
+vim.opt.clipboard = "unnamed,unnamedplus" -- Sync clipboard between OS and Neovim.
 vim.opt.undofile = true -- Save undo history
 
 vim.opt.breakindent = false -- Enable break indent

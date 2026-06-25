@@ -254,7 +254,7 @@ focus_follows_mouse no
 # Start Processes
 ################################################################################
 exec xsetroot -solid "$base02"
-exec xss-lock -- $locker -n
+#exec xss-lock -- $locker -n
 exec dunst
 exec xfsettingsd --sm-client-disable
 # exec ibus-daemon

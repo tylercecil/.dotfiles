@@ -37,42 +37,6 @@ function db() {
 alias dbprod='db -e prod'
 alias dbdev='db -e dev'
 
+# alias claude='aws-sso exec --profile gen-ai-models:gen-ai-inference claude'
 
 eval "$(direnv hook zsh)"
-
-# The following block was requested by our on boarding process. I'm... Actually
-# pretty sure I could remove most of it, but just going to leave it for the time
-# being.
-# if [[ "${PYENV_ROOT:-""}" == "" ]]; then
-#   export PYENV_ROOT=$HOME/.pyenv
-#   export PATH=$PYENV_ROOT/bin:$PATH
-#   eval "$(pyenv init --path)"
-#   eval "$(pyenv init -)"
-#   eval "$(pyenv virtualenv-init -)"
-# fi
-# 
-# # src: https://unix.stackexchange.com/a/217629
-# pathmunge() {
-#   if [ -d "$1" ]; then
-#     if ! echo "$PATH" | grep -Eq "(^|:)$1($|:)"; then
-#       if [ "$2" = "after" ]; then
-#         PATH="$PATH:$1"
-#       else
-#         PATH="$1:$PATH"
-#       fi
-#     fi
-#   fi
-# }
-# 
-# eval $(go env | grep GOPATH)
-# mkdir -p "$GOPATH/bin"
-# 
-# binPaths=(
-#   "$GOPATH/bin"
-# )
-# 
-# for dir in "${binPaths[@]}"; do
-#   pathmunge "$dir"
-# done
-# 
-# 
