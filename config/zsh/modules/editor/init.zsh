@@ -1,7 +1,7 @@
 function editor_default_emacs() {
     EMACS_DEFAULT="emacs_launcher.sh"
-    EDITOR="$EMACS_DEFAULT"
-    ALTERNATE_EDITOR="vim"
+    export EDITOR="$EMACS_DEFAULT"
+    export ALTERNATE_EDITOR="vim"
     alias enw="$EMACS_DEFAULT -nw"
     function en() {
         $EMACS_DEFAULT -c $@ & disown
@@ -9,8 +9,8 @@ function editor_default_emacs() {
 }
 
 function editor_default_nvim() {
-    EDITOR="nvim"
-    ALTERNATE_EDITOR="vim"
+    export EDITOR="nvim"
+    export ALTERNATE_EDITOR="vim"
 }
 
 function editor_default_kak() {
@@ -22,8 +22,8 @@ function editor_default_kak() {
         kak -s $KAK_MAIN_SESSION $@
       fi
     }
-    EDITOR="kak-main"
-    ALTERNATE_EDITOR="vim"
+    export EDITOR="kak-main"
+    export ALTERNATE_EDITOR="vim"
 }
 
 function e() {

@@ -158,7 +158,7 @@ return {
 		local servers = {
 			-- clangd = {},
 			gopls = {},
-			pyright = {},
+			ty = {}, -- Experimental python LSP
 			terraformls = {},
 			ts_ls = {},
 			lua_ls = {
