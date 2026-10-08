@@ -1,0 +1,18 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+name = "Tyler Cecil"
+email = "tcecil@voltus.co"
+
+[ui]
+pager = "delta"
+default-command = "log"
+graph.style = "curved"
+diff-formatter = ":git"
+
+
+[aliases]
+stack = ["util", "exec", "--", "bash", "-c", 'env -u PYTHONPATH jj-stack "$@"', ""]
+
+[templates]
+log = "builtin_log_compact"

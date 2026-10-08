@@ -24,6 +24,7 @@ zmodule $MODDIR/git
 zmodule $MODDIR/gitignore
 zmodule $MODDIR/go
 zmodule $MODDIR/graphite
+zmodule $MODDIR/jj
 zmodule $MODDIR/ls-tools
 zmodule $MODDIR/python
 zmodule $MODDIR/rust
