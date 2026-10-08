@@ -203,6 +203,11 @@ input type:keyboard {
   xkb_options compose:ralt,caps:ctrl_modifier,altwin:swap_alt_win
 }
 
+# Cursor theme. The default ("default") inherits DMZ-White, which only ships
+# legacy X11 cursor names -- modern CSS names like zoom-in, pointer and grab
+# are absent, so the cursor vanishes when an app requests one. Yaru is complete.
+seat seat0 xcursor_theme Yaru 24
+
 ################################################################################
 # Start Processes
 ################################################################################

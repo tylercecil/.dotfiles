@@ -1,9 +1,8 @@
-
 [window]
 option_as_alt = "OnlyLeft"
 
 [font]
-size = 7
+size = 10
 
 [font.bold]
 family = "SauceCodePro Nerd Font"
@@ -27,9 +26,9 @@ import = [
 ]
 
 # [[hints.enabled]]
-# regex = "[^ ]+\\.go:\\d+"
-# command = { program = "nvim", args = [] }
-# mouse = { enabled = true }
+# regex = "[^\\s]+\\.[a-zA-Z0-9]{1,6}(?::[0-9]+)?"
+# command = { program = "alacritty", args = ["-e", "/home/tylercecil/bin/open_at_line.sh"] }
+# mouse = { enabled = true, mods = "Control" }
 
 [[keyboard.bindings]]
 key = "Return"
