@@ -28,5 +28,6 @@ zmodule $MODDIR/jj
 zmodule $MODDIR/ls-tools
 zmodule $MODDIR/python
 zmodule $MODDIR/rust
+zmodule $MODDIR/ssh-agent
 zmodule $MODDIR/voltus
 zmodule $MODDIR/z
