@@ -40,3 +40,7 @@ alias dbdev='db -e dev'
 # alias claude='aws-sso exec --profile gen-ai-models:gen-ai-inference claude'
 
 eval "$(direnv hook zsh)"
+
+if [ -f ~/go/bin/thor ]; then
+	source <(~/go/bin/thor completion zsh)
+fi

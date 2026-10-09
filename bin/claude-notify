@@ -1,0 +1,12 @@
+#!/bin/bash
+# $1 = message, or reads JSON from stdin and extracts .message
+if [ -p /dev/stdin ]; then
+  json=$(cat)
+  echo "$json" >> /tmp/claude-notify-debug.log
+  msg=$(echo "$json" | jq -r '.message // empty')
+  msg="${msg:-Task finished}"
+else
+  msg="${1:-Task finished}"
+fi
+dunstify 'Claude Code' "$msg"
+~/bin/alert
