@@ -7,12 +7,34 @@ email = "tcecil@voltus.co"
 [ui]
 pager = "delta"
 default-command = "log"
-graph.style = "curved"
 diff-formatter = ":git"
 
 
 [aliases]
+e = ["edit"]
+
+l = ["log"]
+ll = ["log", "-T", "builtin_log_detailed"]
+
+n = ["new"]
+
+rebase-all = ["rebase", "-s", "all:roots(trunk()..mutable())", "-d", "trunk()"]
+
 stack = ["util", "exec", "--", "bash", "-c", 'env -u PYTHONPATH jj-stack "$@"', ""]
 
-[templates]
-log = "builtin_log_compact"
+[template-aliases]
+# Overwrites a template used in the builtin templates, mostly to remove git hash
+"format_short_commit_header(commit)" = '''
+separate(" ",
+  format_short_change_id_with_change_offset(commit),
+  format_short_signature(commit.author()),
+  commit_timestamp(commit).ago(),
+  commit.bookmarks(),
+  commit.tags(),
+  commit.working_copies(),
+  format_commit_labels(commit),
+  if(config("ui.show-cryptographic-signatures").as_boolean(),
+    format_short_cryptographic_signature(commit.signature())
+  ),
+)
+'''
