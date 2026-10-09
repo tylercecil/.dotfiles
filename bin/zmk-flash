@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+REPO="tylercecil/zmk-config"
+
+usage() {
+    echo "Usage: zmk-flash [firmware.zip]" >&2
+    exit 1
+}
+
+die() {
+    echo "Error: $*" >&2
+    exit 1
+}
+
+[[ $# -eq 1 ]] || usage
+[[ -f "$1" ]] || die "File not found: $1"
+FIRMWARE_ZIP="$(realpath "$1")"
+TMPDIR="$(mktemp -d /tmp/zmk-flash-XXXX)"
+trap 'rm -rf "$TMPDIR"' EXIT
+
+echo "Unzipping firmware..."
+unzip -q "$FIRMWARE_ZIP" -d "$TMPDIR/fw"
+FW_DIR="$TMPDIR/fw"
+
+LEFT_UF2="$(find "$FW_DIR" -iname '*left*.uf2' | head -1)"
+RIGHT_UF2="$(find "$FW_DIR" -iname '*right*.uf2' | head -1)"
+[[ -n "$LEFT_UF2" ]]  || die "No left*.uf2 found"
+[[ -n "$RIGHT_UF2" ]] || die "No right*.uf2 found"
+
+echo "Found: $(basename "$LEFT_UF2")"
+echo "Found: $(basename "$RIGHT_UF2")"
+
+# Wait for device to disappear (eject)
+wait_for_eject() {
+    local dev="$1"
+    local timeout=30
+    local elapsed=0
+    while (( elapsed < timeout )); do
+        if ! lsblk -rno NAME | grep -q "^${dev}$"; then
+            return 0
+        fi
+        sleep 1
+        (( elapsed++ ))
+    done
+    echo "Warning: device $dev did not eject within ${timeout}s" >&2
+}
+
+flash_half() {
+    local label="$1"
+    local uf2="$2"
+    local beforeDevList
+    local afterDevList
+
+    beforeDevList="$(lsblk -rno NAME | sort)"
+    echo ""
+    read -rp "Plug in $label half, then press Enter..."
+    afterDevList="$(lsblk -rno NAME | sort)"
+    dev="$(comm -13 <(echo "$beforeDevList") <(echo "$afterDevList"))"
+    echo "Detected: /dev/$dev"
+
+    echo "Mounting /dev/$dev..."
+    local mount_output
+    mount_output="$(udisksctl mount -b "/dev/$dev")"
+    echo "${mount_output}"
+    local mount_point
+    mount_point="$(echo "$mount_output" | grep -oP 'at \K\S+')"
+    [[ -n "$mount_point" ]] || die "Could not parse mount point from: $mount_output"
+    echo "Mounted at $mount_point"
+
+    echo "Copying $(basename "$uf2")..."
+    cp "$uf2" "$mount_point/"
+
+    echo "Waiting for $label to eject..."
+    local parent_dev="${dev%%[0-9]*}"
+    wait_for_eject "$parent_dev"
+    echo "$label done."
+}
+
+echo ""
+read -rp "Disconnect keyboard entirely, then press Enter..."
+
+flash_half "left"  "$LEFT_UF2"
+flash_half "right" "$RIGHT_UF2"
+
+echo ""
+echo "Both halves flashed."
